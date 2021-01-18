@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="/css/profile.css" rel="stylesheet">
+    
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/compheader.css" rel="stylesheet">
+</head>
+  <body>
+      
+  <div class="main-content">
+    <!-- Top navbar -->
+      <!-- navbar component--> 
+      <%- include('partials/navbar') %>
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(/img/team-placeholder.png); background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white"> Hello <%= profile.fullname%></h1>
+            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+            <a href="/api/v1/editprofile" class="btn btn-info">Edit profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="/img/team-placeholder.png" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
+                <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                      <span class="heading">22</span>
+                      <span class="description">Rewards</span>
+                    </div>
+                    <div>
+                      <span class="heading">premium</span>
+                      <span class="description">user type</span>
+                    </div>
+                    <div>
+                      <span class="heading"> <%= quizes.length%></span>
+                      <span class="description">quiz hosted</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <h3>
+                    <%= profile.fullname%> <span class="font-weight-light">, 25</span>
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>mobile : <%= profile.mobile_no%>
+                </div>
+                <div class="h5 mt-4">
+                  <i class="ni business_briefcase-24 mr-2"></i>email : <%= profile.email%>
+                </div>
+                <div>
+                  <i class="ni education_hat mr-2"></i>Quizes created :  <%= quizes.length%>
+                </div>
+                <hr class="my-4">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Quiz Created</h3>
+                </div>
+                
+              </div>
+            </div>
+            <div class="d-flex-nowrap">
+                <div class="col">
+            <div class="">
+              <form>
+            <div class="row mt-5 flex-wrap">
+                <% for(let i=0 ;i < quizes.length ;i++){
+                            %>
+                <a style="text-decoration: none;color: black;" href=<%="/api/v1/editquiz?id="+quizes[i].quiz_id%> >                          
+                <div class="card border border-info mx-1 my-2" style="width: 10rem;">
+                    <img src="/sample.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body bg-secondary">
+                      <h5 class="card-title"><%= quizes[i].tittle%></h5>
+                      <% var a = quizes[i].created_at;
+                            var c= a.split("T");
+                            %>
+                      <p class="card-text">created on : <%=c[0]%> </p>
+                    </div>
+                </div>
+            </a>  
+                <% }
+                %>
+                  
+                 
+                  
+                  
+                <hr class="my-4">
+              
+            </div>
+              </form>
+            </div>
+        </div>
+        </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+

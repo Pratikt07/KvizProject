@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Kvizz</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+    <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+
+   
+    <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+  <body>
+       <!-- navbar component--> 
+    <%- include('partials/navbar') %>
+    <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+      <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+          <div class="carousel-item active">
+              <div class="carousel-container">
+                  <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Kvizz</span></h2>
+                  <p class="animate__animated fanimate__adeInUp">Study at home, at school – wherever you are – on your own or together with friends, to review learning content, prepare for tests and have some fun while learning something new!</p>
+                  <a href="/api/v1/login" class="btn-get-started animate__animated animate__fadeInUp scrollto">sign in</a>
+              </div>
+          </div>
+
+          <div class="carousel-item">
+              <div class="carousel-container">
+                  <h2 class="animate__animated animate__fadeInDown">Study for organization</h2>
+                  <p class="animate__animated animate__fadeInUp">Learn new material, review and master topics with study modes
+                      The study modes in the kvizz! app make it fun to review content, prepare for tests, and study in your own time.</p>
+                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              </div>
+          </div>
+
+          <div class="carousel-item">
+              <div class="carousel-container">
+                  <h2 class="animate__animated animate__fadeInDown">kvizz for feedback</h2>
+                  <p class="animate__animated animate__fadeInUp">With a free kvizz! account, you can get access to millions of ready-to-play games/feedback on any topic, in different languages, for children of all ages</p>
+                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+
+          <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+
+      </div>
+
+      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+    <defs>
+      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+    </defs>
+    <g class="wave1">
+      <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+    </g>
+    <g class="wave2">
+      <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+    </g>
+    <g class="wave3">
+      <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+    </g>
+  </svg>
+
+  </section>
+  
+
+  <main id="main">
+
+      <section id="about" class="about">
+          <div class="container">
+
+              <div class="section-title" data-aos="zoom-out">
+                  <h2>About</h2>
+                  <p>Who we are</p>
+              </div>
+
+              <div class="row content" data-aos="fade-up">
+                  <div class="col-lg-6">
+                      <p>
+                          To make learning awesome! At kvizz!, we are all about lifelong learning. In life, we learn new skills through curiosity and play. By combining the two, in a fun and social way, we can unlock the learning potential within all of us, no matter the subject, age or ability.
+
+Unleashing this potential within every learner is what drives us, which is why we are on a mission to make learning awesome. We do this by creating the most engaging and powerful experience, and through our vision of building the leading learning platform in the world.
+                      </p>
+                      <ul>
+                          <li><i class="ri-check-double-line"></i> Connect with friends and family from anywhere</li>
+                          <li><i class="ri-check-double-line"></i> Engage your kids with learning at home</li>
+                          <li><i class="ri-check-double-line"></i> Find high quality, ready-to-play games for the entire family</li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-6 pt-4 pt-lg-0">
+                      <p>
+                          Additional ways Kahoot! makes studying at home awesome
+                          <br>
+1.Access millions of ready-to-play kvizz for free
+<br>
+2.Create your own kvizz with images and drawings
+<br>
+3.Host a game show in in your living room
+                      </p>
+                      <a href="#" class="btn-learn-more">Learn More</a>
+                  </div>
+              </div>
+
+          </div>
+      </section>
+      
+      <section id="work" class="cta p-4">
+          <div class="col d-flex justify-content-center align-items-center font-weight-bolder mb-4" style="color: white;">
+              <h1>How to work</h1>
+          </div>
+          <div class="container mb-4">
+              
+             <div class="row" data-aos="zoom-out">
+             
+                  <div class="card-deck">
+                      <div class="card">
+                        <img class="card-img-top" src="/img/create.png" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center align-items-center font-weight-bolder">Create</h5>
+                          <p class="card-text" style="color: black;">It only takes minutes to create a learning game or trivia quiz on any topic, in any language.</p>
+                        </div>
+                        
+                      </div>
+                      <div class="card">
+                        <img class="card-img-top" src="/img/host.png" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center align-items-center font-weight-bolder">Host</h5>
+                          <p class="card-text" style="color: black;">Host a live game with questions on a big screen or share a game with remote players.</p>
+                        </div>
+                        
+                      </div>
+                      <div class="card">
+                        <img class="card-img-top" src="/img/play.png" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title d-flex justify-content-center align-items-center font-weight-bolder">Play</h5>
+                          <p class="card-text" style="color: black;">Game on! Join a kahoot with a PIN provided by the host and answer questions on your device.</p>
+                        </div>
+                        
+                      </div>
+                    </div>
+                 
+
+
+              </div>  
+          </div>
+      </section>
+     
+      <section id="services" class="services">
+          <div class="container">
+
+              <div class="section-title" data-aos="zoom-out">
+                  <h2>Services</h2>
+                  <p>What we do offer</p>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-4 col-md-6">
+                      <div class="icon-box" data-aos="zoom-in-left">
+                          <div class="icon"><i class="las la-basketball-ball" style="color: #ff689b;"></i></div>
+                          <h4 class="title"><a href=""> Kvizz! at school</a></h4>
+                          <p class="description">Engaging group and distance learning for teachers and students.</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+                      <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+                          <div class="icon"><i class="las la-book" style="color: #e9bf06;"></i></div>
+                          <h4 class="title"><a href="">Kvizz! at work</a></h4>
+                          <p class="description">For training, e-learning, interactive presentations and more.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+                      <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+                          <div class="icon"><i class="las la-file-alt" style="color: #3fcdc7;"></i></div>
+                          <h4 class="title"><a href="">Kvizz! at home</a></h4>
+                          <p class="description">Learning Apps and games for family fun or home study.</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mt-5">
+                      <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
+                          <div class="icon"><i class="las la-tachometer-alt" style="color:#41cf2e;"></i></div>
+                          <h4 class="title"><a href="">Kvizz! at Seminar</a></h4>
+                          <p class="description">Learn new material, review and master topics with study modes.
+                              </p>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mt-5">
+                      <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
+                          <div class="icon"><i class="las la-globe-americas" style="color: #d6ff22;"></i></div>
+                          <h4 class="title"><a href="">Kvizz! for poll</a></h4>
+                          <p class="description">Results appear live and Display them in your presentation, create a report.</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mt-5">
+                      <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="500">
+                          <div class="icon"><i class="las la-clock" style="color: #4680ff;"></i></div>
+                          <h4 class="title"><a href="">Kvizz! Academy</a></h4>
+                          <p class="description">Explore content and join one of the world’s largest educator communities.</p>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </section>
+   
+      <section id="faq" class="faq">
+          <div class="container">
+
+              <div class="section-title" data-aos="zoom-out">
+                  <h2>F.A.Q</h2>
+                  <p>Frequently Asked Questions</p>
+              </div>
+
+              <ul class="faq-list">
+
+                  <li data-aos="fade-up" data-aos-delay="100">
+                      <a data-toggle="collapse" class="" href="#faq1">1. How can guests answer a Moodle quiz? <i class="icofont-simple-up"></i></a>
+                      <div id="faq1" class="collapse show" data-parent=".faq-list">
+                          <p>
+                              
+                          </p>
+                      </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="200">
+                      <a data-toggle="collapse" href="#faq2" class="collapsed">2. How can I try a quiz before it is released? <i class="icofont-simple-up"></i></a>
+                      <div id="faq2" class="collapse" data-parent=".faq-list">
+                          <p>
+                             
+                          </p>
+                      </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="300">
+                      <a data-toggle="collapse" href="#faq3" class="collapsed">3.How can I enable notification of quiz submissions? <i class="icofont-simple-up"></i></a>
+                      <div id="faq3" class="collapse" data-parent=".faq-list">
+                          <p>
+                              
+                          </p>
+                      </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="400">
+                      <a data-toggle="collapse" href="#faq4" class="collapsed">4.How do I send a bulk message to all students who haven't completed a quiz? <i class="icofont-simple-up"></i></a>
+                      <div id="faq4" class="collapse" data-parent=".faq-list">
+                          <p>
+                             
+                          </p>
+                      </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="500">
+                      <a data-toggle="collapse" href="#faq5" class="collapsed">5. How can build a quiz that picks X questions randomly from a larger question bank? <i class="icofont-simple-up"></i></a>
+                      <div id="faq5" class="collapse" data-parent=".faq-list">
+                          <p>
+                             
+                          </p>
+                      </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="600">
+                      <a data-toggle="collapse" href="#faq6" class="collapsed">6. How can I print a copy of a quiz?<i class="icofont-simple-up"></i></a>
+                      <div id="faq6" class="collapse" data-parent=".faq-list">
+                          <u  p>
+                          </p>
+                      </div>
+                  </li>
+
+              </ul>
+
+          </div>
+      </section>
+     
+      <section id="contact" class="contact">
+          <div class="container">
+
+              <div class="section-title" data-aos="zoom-out">
+                  <h2>Contact</h2>
+                  <p>Contact Us</p>
+              </div>
+
+              <div class="row mt-5">
+
+                  <div class="col-lg-4" data-aos="fade-right">
+                      <div class="info">
+                          <div class="address">
+                              <i class="icofont-google-map"></i>
+                              <h4>Location:</h4>
+                              <p>Kharghar mumba9i 41001</p>
+                          </div>
+
+                          <div class="email">
+                              <i class="icofont-envelope"></i>
+                              <h4>Email:</h4>
+                              <p>info@example.com</p>
+                          </div>
+
+                          <div class="phone">
+                              <i class="icofont-phone"></i>
+                              <h4>Call:</h4>
+                              <p>+1 025 354234</p>
+                          </div>
+
+                      </div>
+
+                  </div>
+
+                  <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+
+                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                          <div class="form-row">
+                              <div class="col-md-6 form-group">
+                                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                  <div class="validate"></div>
+                              </div>
+                              <div class="col-md-6 form-group">
+                                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                  <div class="validate"></div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                              <div class="validate"></div>
+                          </div>
+                          <div class="form-group">
+                              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                              <div class="validate"></div>
+                          </div>
+                          <div class="mb-3">
+                              <div class="loading">Loading</div>
+                              <div class="error-message"></div>
+                              <div class="sent-message">Your message has been sent. Thank you!</div>
+                          </div>
+                          <div class="text-center"><button type="submit">Send Message</button></div>
+                      </form>
+
+                  </div>
+
+              </div>
+
+          </div>
+      </section>
+
+  </main>
+ 
+  <footer id="footer">
+      <div class="container">
+          <h3>Kvizz</h3>
+          <p>Interact with your audience using real-time voting. No installations or downloads required - and it's free!</p>
+          <div class="social-links">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+          <div class="copyright">
+              &copy; Copyright <strong><span>Kvizz!!</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+             
+              Designed by <a href="">Kvizz.com</a>
+          </div>
+      </div>
+  </footer>
+
+
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+
+
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

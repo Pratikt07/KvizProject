@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+    <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/compheader.css" rel="stylesheet">
+    <link href="/createquizee.css" rel="stylesheet">
+    
+</head>
+
+<body style="background-color: #bbc0b0;">
+   
+
+    <!--NAV-BAR-->
+    <%- include('partials/navbar') %>
+    <div class="container-fluid" >
+
+
+        <div class="row justify-content-center align-items-center" style="height:100vh" >
+
+         
+            <!-- <div class="col-1 bg-dark">
+
+            </div> -->
+  
+          <h1 class="mt-5">Edit profile</h1> 
+ <div class="col-5 " style="height:50vh;background-color: #fff;overflow: hidden;
+ box-shadow: 0 3px 7px rgb(34, 33, 33);
+ border-radius: 8px;
+">
+
+<form action="/api/v1/editprofile" method="POST" >
+    <div class="m-4" >
+        <h4>User Information</h4>
+    </div>
+    <div class=" row  d-flex m-lg-4">
+       <div class="col-md-6">
+        <h6>Username:</h6>
+        <input type="text" class="form-control" id="uname" placeholder="Username" value=<%= userinfo.email%> style="width:200px">
+       </div>
+       
+       <div class="col-md-6">
+        <h6>Name:</h6>
+        <input type="text" class="form-control" id="uname" placeholder="fullname" value="<%= userinfo.fullname%>" style="width:200px">
+       </div>
+     
+    
+    </div>
+   <div class="row m-lg-4">
+    <h6>Email:</h6>
+    <input type="email" class="form-control" id="uemail" placeholder="email" value=<%= userinfo.email%>>
+    <button class="btn btn-danger mt-3" type="button" style="width:150px;margin-left:350px ;">Delete account</button>
+                
+    </div>
+
+
+
+
+ </div>
+            <div class="col-5 m-4 "   style="height:50vh;background-color: #fff;overflow: hidden;
+            box-shadow: 0 3px 7px rgb(34, 33, 33);
+            border-radius: 8px;
+           "  >    
+
+            
+                    <div class="m-4">
+                        <h4>Account details</h4>
+                    </div>
+                    <div class=" row  d-flex m-lg-4">
+                       <div class="col-md-6">
+                        <h6>Organization:</h6>
+                        <input type="text" class="form-control" id="uname" placeholder="organization name" value="<%= org_details.organization%>" style="width:200px">
+                       </div>
+                       
+                       <div class="col-md-6">
+                        
+                        <div class="form-group">
+                            <label for="sel1"><h6>Language :</h6></label>
+                            <select class="form-control" id="sel1">
+                              <option>English</option>
+                              <option>Hindi</option>
+                              <option>Japanese</option>
+                              <option>French</option>
+                            </select>
+                          </div>
+                       </div>
+                     
+                    
+                    </div>
+                   <div class="row ml-4 lg-4">
+                    <!-- <input type="email" class="form-control" id="uemail" placeholder="email"> -->
+                    <div class="form-group">
+                        <label for="sel1"><h6>Account Type :</h6></label>
+                        <select class="form-control" id="sel1">
+                          <option>student</option>
+                          <option>Teacher</option>
+                          <option>Invigilator
+                          </option>
+                          <option>Quiz admin</option>
+                        </select>
+                      </div>
+                   </div>
+                  <button class="btn btn-success " type="submit" style="width:70px;margin-left:400px ;">Save</button>
+                   </div>
+                
+                
+                </form>
+                
+            </div>
+            <div class="col-1 bg-light">
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>
