@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>payment</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function onloading(){
+            var date = new Date();
+            var strng = date.toLocaleString();
+            document.getElementById("date").innerHTML="Date : "+strng;
+            console.log(strng);
+        }
+        
+
+    </script>
+      
+      <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+      <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+      <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+      <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+      <link href="/assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+      <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+      <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  
+      <link href="/assets/img/favicon.png" rel="icon">
+      <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+      <link href="/assets/css/style.css" rel="stylesheet">
+      <link href="/assets/compheader.css" rel="stylesheet">
+      <link href="/createquizee.css" rel="stylesheet">
+
+  
+    
+  
+</head>
+  <body onload="onloading()">
+    
+    <!------ Include the above in your HEAD tag ---------->
+    <%- include('partials/navbar') %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container  mt-5">
+        <div class="row ">
+            <div class="well col-xs-10 border p-5 ">
+                <div class="row ">
+                    <div class="col-xs-6   col-sm-6 col-md-6">
+                        <address>
+                            <h4><%=username%> </h4>
+                            
+                        </address>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                        <p>
+                            <em id="date">Date:</em>
+                        </p>
+                        <p>
+                            <em>Receipt</em>
+                            <h6 id="orde"><%=orderid.id%></h6>
+                            <input type="hidden" id="orderid" name="order" value=<%=orderid.id%> >
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <h1>Confirm Your order </h1>
+                    </div>
+                    </span>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Package</th>
+                                <th>#</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-md-9"><em><b><%=pack_name%> package<b></em></h4></td>
+                                <td class="col-md-1" style="text-align: center">  </td>
+                                <td class="col-md-1 text-center"><%=amount/100%></td>
+                                <td class="col-md-1 text-center"><%=amount/100%></td>
+                            </tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right">
+                                <p>
+                                    <strong>Subtotal: </strong>
+                                </p>
+                                <p>
+                                    <strong>Tax:(GST) </strong>
+                                </p></td>
+                                <td class="text-center">
+                                <p>
+                                    <strong>00.00</strong>
+                                </p>
+                                <p>
+                                    <strong id="amount"><%=amount/100%></strong>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                                <td class="text-center text-danger"><h4><strong><%=amount/100%></strong></h4></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" id="pay" class="btn btn-success btn-lg btn-block">
+                        Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button></td>
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                    <script>
+                         document.getElementById('pay').onclick = function (e) {
+            var options = {
+                "key":"rzp_test_iQtO5P0XiunwfV",
+                "currency":"INR",
+                "name":"Kvizz purchase",
+                "description" : "package purchase",
+                "image" : "http://localhost:3000/sample.jpeg",
+                "order_id" : document.getElementById('orderid').value ,
+                "handler":function(response){
+                    // document.getElementById('order-pay-id').value=response.razorpay_payment_id ;
+                    // document.getElementById("order-id").value=response.razorpay_order_id;
+                    // document.getElementById('order-sig').value = response.razorpay_signature;
+                    let payment_id= response.razorpay_payment_id;
+                    let order_id = response.razorpay_order_id;
+                    let signature = response.razorpay_signature;
+                    var data = {
+                        "payment_id":payment_id,
+                        "order_id" :order_id ,
+                        "order_sig" :signature,
+                        "amount":document.getElementById('amount').innerHTML
+                    }
+                     fetch('/api/v1/paymentsuccess', {
+                        method : "POST" ,
+                        headers : {	   
+                            "Content-Type": "Application/Json",
+                            "Access-Control-Allow-Origin": "*",
+                        },
+                        body : JSON.stringify(data)
+                    })
+                .then(response => response.json())
+                    .then(json => {
+                        console.log(json);
+                        window.location.href='/api/v1/paymentsuccess1';
+                    })
+                .catch(error => console.log('payment failed : ' + error.message));
+                    
+                },
+                "theme":{
+                    "color":"#227254"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+            console.log("helloo");
+           
+    
+        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
