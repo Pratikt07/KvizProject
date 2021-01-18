@@ -1,15 +1,12 @@
 // const { try } = require("bluebird");
 
-
 var counter = 0;
-
 async function mcqajax() {
     let userComment = document.querySelector("#question").value;
     let op1 = document.querySelector("#option1").value;
     let op2 = document.querySelector("#option2").value;
     let op3 = document.querySelector("#option3").value;
     let op4 = document.querySelector("#option4").value; // we are not using innerHTML wy bcz this is a form element
-
 
     document.querySelector("#numinc");
     counter = counter + 1;
@@ -57,14 +54,12 @@ async function mcqajax() {
         await unticker();
         alert("data inserted");
     } else {
-
         await unticker();
         alert("data not  inserted");
     }
 }
 
 async function pollajax() {
-
     let userComment = document.querySelector("#questionp").value;
     let op1 = document.querySelector("#option1p").value;
     let op2 = document.querySelector("#option2p").value;
@@ -152,19 +147,16 @@ async function fillajax() {
         document.querySelector("#option4f").value = "";
         alert("data insert");
         await unticker();
-
     } else {
         await unticker();
         alert("data not inserted");
     }
-
 }
 /* all ajax calls are here
 1.ajax()=mcq
 2.ajax_fill()=fill
 3.ajax_poll()=poll
 */
-
 async function ajax(question, option1, option2, option3, option4, counter) {
     console.log("inside ajax", counter);
     let timer = document.getElementById('timer').value

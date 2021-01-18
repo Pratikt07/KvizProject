@@ -41,7 +41,8 @@ exports.listQuizzes= async (req,res)=>{
     }
 }
 exports.fetchQuizz=async (req,res)=>{
-    console.log(req.query);
+    //console.log("req.query fetchquiz = "req.query);
+    
     const quiz = await db.quiz.findOne({attributes:["quiz_id","tittle","description","overall_timer"],
     where: {quiz_id :req.query.id } 
     });
@@ -94,7 +95,8 @@ exports.fetchQuizz=async (req,res)=>{
        // console.log("inside checker")
          res.render('playQuiz.ejs',{session:session_check_controller.check_session(req,res),
                                      username:req.session.user,
-                                     results:results
+                                     results:results,
+                                     quiz_id : req.query.id
                                       });
   }
      else{

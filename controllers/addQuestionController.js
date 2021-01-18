@@ -107,10 +107,10 @@ const db=require('../models/index');
                
             }
         }).then(v=>{console.log("successfull",v)
-                res.json({msg:"successful",status:true});
+                res.json({status:"successful"});
             }).catch(e=>{
                 console.log(e)
-                res.send({msg:"unsuccessful",status:false})
+                res.send({status:"unsuccessful"})
             });
         
         

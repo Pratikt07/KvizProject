@@ -14,11 +14,11 @@ module.exports.addResponse = async (req, res) => {
         let participant;
         let question_resp = req.body.question_resp;
         
-        //console.log("req.body in addresponse = "+req.body);
+        console.log("req.body in addresponse = "+req.body);
         // console.log("question_response = "+JSON.parse(question_resp));
         //question_resp = question_resp;
-        //console.log("question_repspose = "+question_resp);
-        //console.log("lentgh of response = "+JSON.parse(JSON.stringify(question_resp)).length);
+        console.log("question_repspose = "+question_resp);
+        console.log("lentgh of response = "+JSON.parse(JSON.stringify(question_resp)).length);
         // let participant_id = ;
         //     let quiz_id=;
         const workSheetColumnName = [
@@ -37,9 +37,9 @@ module.exports.addResponse = async (req, res) => {
         for(let i=0;i<(JSON.parse(JSON.stringify(question_resp)).length);i++){
            
             let result = {};
-            //console.log(JSON.parse(question_resp[i]));
+            console.log(JSON.parse(question_resp[i]));
             let stmnt = JSON.parse(question_resp[i]).response_answer_statement;
-            //console.log(" response statement = "+JSON.parse(JSON.stringify(question_resp[i])));
+            console.log(" response statement = "+JSON.parse(JSON.stringify(question_resp[i])));
             if(stmnt){
 
             }else{
@@ -54,22 +54,22 @@ module.exports.addResponse = async (req, res) => {
         
         
         let saveResponse =   await db.sequelize.query(query);
-        //console.log(saveResponse);
+        console.log(saveResponse);
        
          participant = await db.users.findOne({  // for participant name
             where : {userid :req.body.participant_id }
         })
-        //console.log(JSON.stringify(participant));
+        console.log(JSON.stringify(participant));
 
         var correct_statement;
         let resp_stmt;
-        //console.log(`error = ${JSON.parse(question_resp[i]).question_id}`);
+        console.log(`error = ${JSON.parse(question_resp[i]).question_id}`);
 
         let options = await db.options.findAll({
             where :{ question_id : JSON.parse(question_resp[i]).question_id}
         }) ;
 
-        //console.log(JSON.stringify(options));
+        console.log(JSON.stringify(options));
 
         if(JSON.parse(question_resp[i]).correct_statement){
             resp_stmt = JSON.parse(question_resp[i]).response_answer_statement;
@@ -114,7 +114,7 @@ module.exports.addResponse = async (req, res) => {
         const filePath = rootPath +`/public/responses_offline/${Date.now()}-${participant.fullname}.xlsx`
         fs.appendFile(filePath, '', function (err) {
             if (err) throw err;
-           // console.log('Saved!');
+            console.log('Saved!');
           });
 
         const workSheetName = "Response of "+req.body.quiz_id+" quiz";
