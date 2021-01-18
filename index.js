@@ -13,11 +13,7 @@ const FileStore = require('session-file-store')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-var multer  = require('multer');
-const exportUsersToExcel = require('./models1/exportService');
-const helpers = require('./controllers/helpers')
-const storage = require('./controllers/storageImg')
-let upload = multer({ storage: storage, fileFilter: helpers.imageFilter });
+
 //require js file from other folders to use their function
 
 const { deserializeUserCallback } = require('./controllers/deserializeUserController.js');
@@ -46,7 +42,9 @@ const  editprofileRouter  = require('./routes/editprofileRoute.js');
 const paymentSuccessRouter = require('./routes/paymentSuccessRoute.js');
 const paymentSuccess1Router = require('./routes/paymentSuccess1Route.js')
 const joinQuizRouter = require('./routes/joinQuizRoute.js');
+
 const addResponseRouter = require('./routes/addResponseRouter');
+
 /*                                                                              
 MIDDLEWARE STACK
 
@@ -119,21 +117,23 @@ app.use('/api/v1/resetpassword', resetPasswordRouter);
 app.use('/api/v1/checkplag', checkPlagRouter);
 app.use('/api/v1/upload-multiple-files', startQuizRouter);
 app.use('/api/v1/saveQuizdetails', savingQuizInitialsRouter);
-app.use('/api/v1/addQuestion',upload.single('question_image'), addQuestionRouter);
+app.use('/api/v1/addQuestion', addQuestionRouter);
 app.use('/api/v1/offlineQuiz', offlineQuizRouter);
 app.use('/api/v1/fetchquiz', fetchquizRouter);
 app.use('/api/v1/payment', paymentRouter);
 app.use('/api/v1/logout', logoutRouter);
 app.use('api/v1/startquiz', startQuizRouter);
-app.use('/api/v1/createQuiz',upload.single('quiz_image'), createQuizRouter);
+app.use('/api/v1/createQuiz', createQuizRouter);
 app.use('/api/v1/doneQuiz', doneQuizRouter);
 app.use('/api/v1/profile', profileRouter); ///api/v1/premium
 app.use('/api/v1/premium', premiumRouter);
+
 app.use("/api/v1/editprofile",upload.single('profile_image'),editprofileRouter);
 app.use("/api/v1/paymentsuccess",paymentSuccessRouter);
 app.use("/api/v1/paymentsuccess1",paymentSuccess1Router);
 app.use("/api/v1/joinquiz",joinQuizRouter);
 app.use('/api/v1/addResponse',addResponseRouter)
+
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

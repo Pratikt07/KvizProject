@@ -7,6 +7,7 @@ var session_check_controller = require('./session_check_controller');
 
 module.exports.getQuiz_page = async function(req, res) {
     try {
+
         //console.log("hello brother");
 
         var quiz_id = req.query.quiz_id;
@@ -23,6 +24,7 @@ module.exports.getQuiz_page = async function(req, res) {
             //console.log("outiside checker");
             res.render('login.ejs', { session: session_check_controller.check_session(req, res), flag: true });
         }
+
 
 
     } catch (error) {

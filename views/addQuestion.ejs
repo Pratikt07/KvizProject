@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>Kvizz</title>
-        <meta content="" name="descriptison">
-        <meta content="" name="keywords">
+    <title>Kvizz</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
 
 
 
-        <style>
-            .bs-example {
-                margin: 20px;
-            }
-        </style>
-        <!--<script>
+
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+    <!--<script>
+
             $(document).ready(function () {
                 $("#myTab a").click(function (e) {
                     e.preventDefault();
@@ -27,14 +29,14 @@
            
         </script>
         -->
-        
 
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
 
- <!--   <link href="/assets/img/favicon.png" rel="icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!--   <link href="/assets/img/favicon.png" rel="icon">
+
         <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
         <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -48,636 +50,163 @@
         <link href="assets/css/style.css" rel="stylesheet">
         -->
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <script>
-            //
-                function tick(e) {
-                e.style.color = "green";
-                var correct_option = e.parentElement.parentElement.children[1].firstElementChild.name;
-                document.getElementById("correct_option").setAttribute("value",correct_option);
-                console.log(  document.getElementById("correct_option").value)
-                }  
-                async function unticker(){   
-                    console.log("hello brother");                
-                    var array = document.getElementById("clicking").querySelectorAll("#tick");
-                    console.log(array) ;
-                    for(let i = 0 ;i < array.length ;i++){
-                        array[i].style.color ="gray";
-                        console.log(i);
-                    }
-                    document.getElementById("correct_option").setAttribute("value",0);
-                }
-           
-        </script>
 
-         <style>
-             #exit:hover
-             {
-                  background:#ef6603;
-                  border-radius: 15px;
-             }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script>
+        //
+        function tick(e) {
+            e.style.color = "green";
+            var correct_option = e.parentElement.parentElement.children[1].firstElementChild.name;
+            document.getElementById("correct_option").setAttribute("value", correct_option);
+            console.log(document.getElementById("correct_option").value)
+        }
+        async function unticker() {
+            console.log("hello brother");
+            var array = document.getElementById("clicking").querySelectorAll("#tick");
+            console.log(array);
+            for (let i = 0; i < array.length; i++) {
+                array[i].style.color = "gray";
+                console.log(i);
+            }
+            document.getElementById("correct_option").setAttribute("value", 0);
+        }
+    </script>
 
-             #dombtn:hover
-             {
-                  background:#ef6603;
-                  border-radius: 15px;
-             }
-             #dombtn
-             {
-                background:#ef6603;
-                  margin-right: 16px;
-             }
-             #exit
-             {
-                  margin-right: 20px;
-             }
-             #delete:hover
-             {
-                  background:#ef6603;
-                  border-radius: 15px;
-             }
-         </style>
-        <script src="/assets/js/dom.js"></script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
         
+        * {
+            box-sizing: border-box;
+        }
         
-    </head>
-   
-    
-    
-    
+        .bg-image {
+            /* The image used */
+            background-image: url("/assets/img/bg.jpg");
+            /* Add the blur effect */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* Position text in the middle of the page/image */
+        
+        .bgg-text {
+            /* Fallback color */
+            /* Black w/opacity/see-through */
+            color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        
+        #exit:hover {
+            background: #ef6603;
+            border-radius: 15px;
+        }
+        
+        #dombtn:hover {
+            background: #ef6603;
+            border-radius: 15px;
+        }
+        
+        #dombtn {
+            background: #ef6603;
+            margin-right: 16px;
+        }
+        
+        #exit {
+            margin-right: 20px;
+        }
+        
+        #delete:hover {
+            background: #ef6603;
+            border-radius: 15px;
+        }
+    </style>
+    <script src="/assets/js/dom.js"></script>
 
 
-        <body class="bg-light"> 
-            <nav class="navbar navbar-expand-lg navbar-light" style="background:rgb(50, 53, 72);">
-                <a class="navbar-brand text-light" href="#" style="font-weight: bolder; font-size: 25px;">Kvizz</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+</head>
+
+
+
+
+
+
+<body class="">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background:rgb(50, 53, 72);">
+        <a class="navbar-brand text-light" href="#" style="font-weight: bolder; font-size: 25px;">Kvizz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link text-light" id="exit" href="#">Exit <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active mr-5">
-                        <a href="/api/v1/doneQuiz" class="nav-link text-light" id="delete" href="#">Done  <span class="sr-only">(current)</span></a>
-                      </li>
-                    
-                    
-                  </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-light" id="exit" href="#">Exit <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active mr-5">
+                    <a href="/api/v1/doneQuiz" class="nav-link text-light" id="delete" href="#">Done  <span class="sr-only">(current)</span></a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+    <div class="bg-image"></div>
+
+    <div class="container-fluid bgg-text mt-5">
+
+
+
+        <div class="d-flex justify-content-center align-items-center mt-0 pt-5 ">
+            <button type="button" id="dombtn" class="btn text-light" data-toggle="modal" data-target=".bd-example-modal-lg">MCQ</button>
+            <button type="button" id="dombtn" class="btn btn-light text-light" data-toggle="modal" data-target=".bd-example2-modal-lg">FILL</button>
+            <button type="button" id="dombtn" class="btn btn-light text-light" data-toggle="modal" data-target=".bd-example1-modal-lg">POLL</button>
+        </div>
+        <div class="container-fluid pt-2">
+
+
+            <div class="bs-example   ">
+                <div class="bs-example row  justify-content-center">
+
+                    <div class="col">
+
+
+                        <div id="commentBox" class="container-fluid">
+                            <!-- Sample Reference Comment -->
+
+
+
+                        </div>
+
+                    </div>
                 </div>
-              </nav>
-              <div class="d-flex justify-content-center align-items-center mt-4">
-                <button type="button" id="dombtn" class="btn text-light"  data-toggle="modal" data-target=".bd-example-modal-lg">MCQ</button>
-                <button type="button" id="dombtn" class="btn btn-light text-light" data-toggle="modal" data-target=".bd-example2-modal-lg">FILL</button>
-                <button type="button" id="dombtn" class="btn btn-light text-light" data-toggle="modal" data-target=".bd-example1-modal-lg">POLL</button>
             </div>
-            <div class="container-fluid pt-2">
 
-               
-                
-                <!--MCQ MODEL START-->
-                
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="tab-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Multiple choice question</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            <div class="tab-pane fade show active" id="mcq">
-                                <div class="container p-0 m-0 mcq-xl" id="mcq">
-                                    <div class=" row d-flex justify-content-center align-items-start" style="height:100vh ;">
-                                        <form id="myform" >
-            
-                                            <div id="clicking" class=" col-6 col-sm-12 bg-dark">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-9 d-flex justify-content-center align-items-center"
-                                                                style="height:100px">
-                                                                <input type="text" class="form-control p-0" id="question" name="quesStatement" required
-                                                                    style="height:100px" placeholder="write your question here"
-                                                                    aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                            <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center"
-                                                                data-toggle="modal" data-target="#exampleModalCenter">
-                                                                <a href="#" style="font-size:25px; color:gray"><i
-                                                                        class="fas fa-images">image</i></a>
-                                                            </div>
-                                                        </div>
-                    
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-1 p-0 d-flex justify-content-center">
-                                                                
-                                                                    <i onclick="tick(this)" id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray"></i>
-                                                                
-                                                            </div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center"
-                                                                style="height:50px">
-                                                                <input type="text" class="form-control p-0" id="option1" name="1" required
-                                                                    style="height:50px" placeholder="answer option 1" aria-label=""
-                                                                    aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                        </div>
-                    
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Insert Image</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                            aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="file-upload-wrapper">
-                                                                            <input type="file" id="input-file-now" class="file-upload" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary">Upload</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                    
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-1 p-0 d-flex justify-content-center"><i  onclick="tick(this)" id="tick" class="fas fa-check-circle"
-                                                                        style="font-size:40px; color:gray;"></i></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center"
-                                                                style="height:50px;">
-                                                                <input type="text" class="form-control p-0"  id="option2" name="2" required
-                                                                    style="height:50px;" placeholder="answer option 2" aria-label=""
-                                                                    aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                            
-                                                        </div>
-                    
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-1 p-0 d-flex justify-content-center"><i id="tick" onclick="tick(this)"class="fas fa-check-circle"
-                                                                style="font-size:40px; color:gray;"></i></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center"
-                                                                style="height:50px;">
-                                                                <input type="text" class="form-control p-0"  id="option3" name="3" style="height:50px;"
-                                                                    placeholder="answer option 3" aria-label=""
-                                                                    aria-describedby="basic-addon1"></input>
-                                                                <a href="#"><i class="fas fa-trash-alt"
-                                                                        style="font-size:25px; color:gray;"></i></a>
-                                                            </div>
-                                                            
-                                                        </div>
-                    
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-1 p-0 d-flex justify-content-center"><i id="tick" onclick="tick(this)"class="fas fa-check-circle"
-                                                                style="font-size:40px; color:gray;"></i></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center"
-                                                                style="height:50px;">
-                                                                <input type="text" class="form-control p-0"  id="option4" name="4" style="height:50px;"
-                                                                    placeholder="answer option 4" aria-label=""
-                                                                    aria-describedby="basic-addon1"></input>
-                                                                <a href="#"><i class="fas fa-trash-alt"
-                                                                        style="font-size:25px; color:gray"></i></a>
-                    
-                                                            </div>
-                                                            
-                                                        </div>
-                    
-                                                        
-                                                        <div class="row d-flex justify-content-start align-items-center mt-3 pl-3">
-                                                            <div class="col">
-                                                                <div class="form-group">
-                                                                
-                                                                    <select  name="difficulty" id="difficulty" style="height: 40px; width:200px"><i class="far fa-clock "></i>
-                                                                        <option >Easy</option>
-                                                                        <option >Medium</option>
-                                                                        <option >Hard</option>
-                                                                        
-                                                                    </select>
-                                                                  </div>
-                                                                  <div class="form-group">
-                                                                    <label for="maxpoint">Max Points</label>
-                                                                    <select  name="maxpoint" id="maxpoint" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
-                                                                        <option value="250">250</option>
-                                                                        <option value="500">500</option>
-                                                                        <option value="1000">1000</option>
-                                                                        <option value="2000">2000</option>
-                                                                    </select>     
-                                                                </div>  
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                        <div class="row d-flex justify-content-start align-items-center">
-                                                            <div class="col-3 p-0 mt-3 border border-dark">
-                                                                <button type="button" class="btn btn-dark btn-block">tag topic</button>
-                                                            </div>
-                                                            <div class="col-7"></div>
-                                                        </div>
-                                                        <div
-                                                            class="row d-flex justify-content-start align-items-center d-flex justify-content-start align-items-center mt-3 p-0">
-                                                            <div class="row p-0 m-0 d-flex justify-content-center align-items-center">
-                                                                <div class="col-lg-6 col-sm-12 p-0" style="height:40px; width:70px">
-                    
-                                                                    <select name="timer"  id="timer" style="height:40px; width:200px"><i
-                                                                            class="far fa-clock "></i>
-                                                                        <option value="10">10 Seconds</option>
-                                                                        <option value="20">20 Seconds</option>
-                                                                        <option value="30">30 Seconds</option>
-                                                                        <option value="45">45 Seconds</option>
-                                                                        <option value="60 ">60 Seconds</option>
-                                                                        <option value="120">2 Minutes</option>
-                                                                       
-                                                                    </select>
-                                                                </div>
-                    
-                                                                <div class="col-lg-3  col-sm-12 p-0 mt-2">
-                                                                    <button type="button" class="btn btn-danger btn-sm btn-block p-0"
-                                                                        style="height:40px;">cancel</button>
-                                                                </div>
-                                                                <input type="hidden" id="correct_option" name="correctoption" value="">
-                                                                
-                                                                <div class="col-lg-3 col-sm-12 p-0 mt-2">
-                                                                    <button type="button" onclick="mcqajax()" onclick="increment()" id="#mcqbutton" class="btn btn-success btn-sm btn-block ml-1 p-0"
-                                                                        style="height:40px;">save</button>
-
-                                                                        
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <!--MCQ MODEL END-->
-
-                <!--FILL IN THE BLACK START-->
-                
-                <div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="tab-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Multiple choice question</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            <div class="tab-pane fade show active" id="mcq">
-                                <div class="container p-0 m-0 mcq-xl" id="mcq">
-                                    <div class=" row d-flex justify-content-center align-items-start" style="height:100vh ;">
-                                        <form id="myform" >
-            
-                                            <div class=" col-6 col-sm-12 bg-dark">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-9 d-flex justify-content-center align-items-center" style="height:100px">
-                                                                <input type="text" id="questionf" class="form-control p-0" style="height:100px" placeholder="write your question here" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                            <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#exampleModalCenter">
-                                                            <a href="#" style="font-size:25px; color:gray;"><i class="fas fa-images">image</i></a>
-                                                            </div> 
-                                                        </div> 
-                                            
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                    <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Insert Image</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                    <div class="file-upload-wrapper">
-                                                                        <input type="file" id="input-file-now" class="file-upload" />
-                                                                  </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary">Upload</button>
-                                                                    </div>
-                                                                    </div>
-                                                                </div>
-                                                           </div>
-                                                        
-                                                        <div class="row d-flex justify-content-start align-items-center mt-3 mb-3 pl-3">
-                                                            <div class="col" style="color:gray">
-                                                                Add the answer
-                                                            </div>
-                                                        </div>
-                                            
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col d-flex justify-content-center align-items-center"style="height:50px">
-                                                                <input type="text" id="option1f" class="form-control p-0" style="height:50px" placeholder="  Answer*" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div> 
-                                                        </div>
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col d-flex justify-content-center align-items-center"style="height:50px">
-                                                                <input type="text" id="option2f" class="form-control p-0" style="height:50px" placeholder="  Answer 2" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div> 
-                                                        </div>
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col d-flex justify-content-center align-items-center"style="height:50px">
-                                                                <input type="text" id="option3f" class="form-control p-0" style="height:50px" placeholder="  Answer 3" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div> 
-                                                        </div>
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col d-flex justify-content-center align-items-center"style="height:50px">
-                                                                <input type="text" id="option4f" class="form-control p-0" style="height:50px" placeholder="  Answer 4" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div> 
-                                                        </div>
-                                        
-                                        
-                                                        <div class="row d-flex justify-content-start align-items-center mt-3 pl-3">
-                                                            <div class="col">
-                                                                <div class="form-group">
-                                                                
-                                                                    <select  name="difficulty" id="difficulty_fill" style="height: 40px; width:200px"><i class="far fa-clock "></i>
-                                                                        <option value="Easy" >Easy</option>
-                                                                        <option value="Medium" >Medium</option>
-                                                                        <option value="Hard" >Hard</option>
-                                                                        
-                                                                    </select>
-                                                                  </div>
-                                                                  <div class="form-group">
-                                                                    <label for="maxpoint">Max Points</label>
-                                                                    <select  name="maxpoint" id="maxpoint_fill" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
-                                                                        <option value="250">250</option>
-                                                                        <option value="500">500</option>
-                                                                        <option value="1000">1000</option>
-                                                                        <option value="2000">2000</option>
-                                                                    </select>     
-                                                                </div>  
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                        <div class="row d-flex justify-content-start align-items-center">
-                                                            <div class="col-3 p-0 mt-3 border border-dark">
-                                                                <button type="button" class="btn btn-dark btn-block">tag topic</button>
-                                                            </div>
-                                                            <div class="col-7"></div>
-                                                        </div>
-                                                        
-                                                        
-                                                        <div class="row d-flex justify-content-start align-items-center d-flex justify-content-start align-items-center mt-3 p-0">
-                                                                <div class="row p-0 m-0 d-flex justify-content-center align-items-center">
-                                                                    <div class="col-lg-6 col-sm-12 p-0 d-flex justify-content-start" style="height:40px; width:70px;">
-                                                                    
-                                                                       <!-- timer for fill  -->
-                                                                <select name="timer"  id="timer_fill" style="height:40px; width:200px"><i
-                                                                     class="far fa-clock "></i>
-                                                                    <option value="10">10 Seconds</option>
-                                                                    <option value="20">20 Seconds</option>
-                                                                    <option value="30">30 Seconds</option>
-                                                                    <option value="45">45 Seconds</option>
-                                                                    <option value="60 ">60 Seconds</option>
-                                                                    <option value="120">2 Minutes</option>
-                                                                   
-                                                                </select>
-                                                                    </div>
-                                                                    <div class="col-lg-3  col-sm-12 p-0 mt-2"  >
-                                                                        <button type="button" class="btn btn-danger btn-sm btn-block p-0" style="height: 40px">cancel</button>   
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-12 p-0 mt-2" >
-                                                                        <button type="button" onclick="fillajax()" class="btn btn-success btn-sm btn-block ml-1 p-0"  style="height: 40px">save</button>   
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-            
-                                                
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <!--FILL IN THE BLACK CLOSE-->
-
-
-                <!--POLL MODEL START-->
-
-                
-                <div class="modal fade bd-example1-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="tab-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Multiple choice question</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            <div class="tab-pane fade show active" id="mcq">
-                                <div class="container p-0 m-0 mcq-xl" id="mcq">
-                                    <div class=" row d-flex justify-content-center align-items-start" style="height:100vh ;">
-                                        <form id="myform" >
-            
-                                            <div class=" col-6 col-sm-12 bg-dark">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                            <div class="col-9 d-flex justify-content-center align-items-center" style="height:100px">
-                                                                <input type="text" class="form-control p-0" id="questionp" style="height:100px" placeholder="write your question here" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                            <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#exampleModalCenter">
-                                                            <a href="#"  style="font-size:25px; color:gray"><i class="fas fa-images">image</i></a>
-                                                            </div> 
-                                                        </div> 
-                                                        <div class="row mt-4">
-                                                            <div class="col">
-                                                            <input type="checkbox" id="sel" name="sel" value="Allow Multiple Selection"></input>
-                                                            <label for="sel">&nbsp;&nbsp;Allow Multiple Selection</label><br></br>
-                                                            </div>  
-                                                        </div>
-                                                        
-                                        
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                        <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle"  style="font-size:40px; color:gray"></i></a></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
-                                                                <input type="text" class="form-control p-0" id="option1p" style="height:50px" placeholder="answer option 1" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                             
-                                                        </div>
-                                        
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                        <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray"></i></a></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
-                                                                <input type="text" class="form-control p-0" id="option2p" style="height:50px" placeholder="answer option 2" aria-label="" aria-describedby="basic-addon1"></input>
-                                                            </div>
-                                                             
-                                                        </div>
-                                        
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                        <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray"></i></a></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
-                                                                <input type="text" class="form-control p-0" id="option3p" style="height:50px" placeholder="answer option 3" aria-label="" aria-describedby="basic-addon1"></input>
-                                                                <a href="#"><i class="fas fa-trash-alt" style="font-size:25px; color:gray"></i></a>
-                                                            </div>
-                                                             
-                                                        </div>
-                                        
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                    <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Insert Image</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                    <div class="file-upload-wrapper">
-                                                                        <input type="file" id="input-file-now" class="file-upload" />
-                                                                  </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary">Upload</button>
-                                                                    </div>
-                                                                    </div>
-                                                                </div>
-                                                           </div>
-                                        
-                                                        <div class="row d-flex justify-content-center mt-3">
-                                                        <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle" style="font-size:40px;color:gray"></i></a></div>
-                                                            <div class="col-11 d-flex justify-content-center align-items-center"style="height:50px;">
-                                                                <input type="text" class="form-control p-0" id="option4p" style="height:50px;" placeholder="answer option 4" aria-label="" aria-describedby="basic-addon1"></input>
-                                                                <a href="#"><i class="fas fa-trash-alt" style="font-size:25px; color:gray;"></i></a>
-                                        
-                                                            </div>
-                                                             
-                                                        </div>
-                                                        <div class="row d-flex justify-content-start align-items-center mt-3 pl-3">
-                                                            <div class="col">
-                                                                <div class="form-group">
-                                                                
-                                                                    <select  name="difficulty" id="difficulty" style="height: 40px; width:200px"><i class="far fa-clock "></i>
-                                                                        <option >Easy</option>
-                                                                        <option >Medium</option>
-                                                                        <option >Hard</option>
-                                                                        
-                                                                    </select>
-                                                                  </div>
-                                                                  <div class="form-group">
-                                                                    <label for="maxpoint">Max Points</label>
-                                                                    <select  name="maxpoint" id="maxpoint" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
-                                                                        <option value="250">250</option>
-                                                                        <option value="500">500</option>
-                                                                        <option value="1000">1000</option>
-                                                                        <option value="2000">2000</option>
-                                                                    </select>     
-                                                                </div>  
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row d-flex justify-content-start align-items-center">
-                                                            <div class="col-3 p-0 mt-3 border border-dark">
-                                                                <button type="button" class="btn btn-dark btn-block">tag topic</button>
-                                                            </div>
-                                                            <div class="col-7"></div>
-                                                        </div>
-
-                                                        <div class="row d-flex justify-content-start align-items-center d-flex justify-content-start align-items-center mt-3 p-0">
-                                                                <div class="row p-0 m-0 d-flex justify-content-center align-items-center">
-                                                                    <div class="col-lg-6 col-sm-12 p-0" style="height: 40px; width:70px;">
-                                                                    
-                                                                        <select  name="cars" id="cars" style="height: 40px; width:200px;"><i class="far fa-clock "></i>
-                                                                            <option value="30 Seconds">30 Seconds</option>
-                                                                            <option value="5 Seconds">5 Seconds</option>
-                                                                            <option value="10 Seconds">10 Seconds</option>
-                                                                            <option value="20 Seconds">20 Seconds</option>
-                                                                            <option value="45 Seconds">45 Seconds</option>
-                                                                            <option value="60 Seconds">60 Seconds</option>
-                                                                            <option value="2 Minutes">2 Minutes</option>
-                                                                            <option value="3 Minutes">3 Minutes</option>
-                                                                            <option value="5 Minutes">5 Minutes</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-lg-3  col-sm-12 p-0 mt-2"  >
-                                                                        <button type="button" class="btn btn-danger btn-sm btn-block p-0" style="height: 40px">cancel</button>   
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-sm-12 p-0 mt-2" >
-                                                                        <button type="button" onclick="pollajax()" class="btn btn-success btn-sm btn-block ml-1 p-0"  style="height: 40px">save</button>   
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-            
-                                                
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <!--POLL MODEL COLSE-->
-                 
-                <div class="bs-example   ">
-                    <div class="bs-example row  justify-content-center">
-
-                <div class="col">
-
-
-                            <div id="commentBox" class="container-fluid">
-                                <!-- Sample Reference Comment -->
-
-
-
-                            </div>
-                        
-                </div>
-                </div>
-                </div>
-    
-                <!--dom div start for mcq-->
-                <div id="referenceCommentId" style="visibility: hidden;">
-                    <div class="container d-flex justify-content-center align-items-center mt-2 ">
+            <!--dom div start for mcq-->
+            <div id="referenceCommentId" style="visibility: hidden;">
+                <div class="container d-flex justify-content-center align-items-center mt-2 ">
                     <div class="card w-50" style="background:rgba(225, 226, 231, 0.9) ">
                         <div class="card-body  ">
                             <div class="row d-flex align-items-center">
                                 <div class="col-10">
                                     <h5 class="card-title text-dark">Question &nbsp;<span id="numinc">0</span> <span id="type"></span> </h5>
                                 </div>
-            
+
                                 <div class="col-1">
                                     <a href=""> <i class="fa fa-edit  green-color pt-1" style="color:#ef6603; font-size:30px;"></i>
                                     </a>
@@ -686,10 +215,10 @@
                                     <a href=""><i class="fa fa-trash  green-color p-0" style="color:#ef6603; font-size:27px;"></i></a>
                                 </div>
                             </div>
-            
+
                             <hr class="p-0.2 m-0.5">
                             <div class="d-flex justify-content-right align-items-center text-dark  pl-3 row ">dvdsvdsv The Covid-19 pandemic led to shutdown of the schools, offices, coaching institutes and almost all the major sectors of the economy. But that doesn't mean that it should hamper the work routines. Due
-            
+
                             </div>
                             <hr class="p-0.2 m-0.5">
                             <div>
@@ -723,17 +252,518 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--MCQ MODEL START-->
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="tab-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Multiple choice question</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                    </div>
+                    <div class="tab-pane fade show active" id="mcq">
+                        <div class="container p-0 m-0 mcq-xl" id="mcq">
+                            <div class=" row d-flex justify-content-center align-items-start" style="height:100vh ;">
+                                <form id="myform">
+
+                                    <div id="clicking" class=" col-6 col-sm-12 bg-dark">
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-9 d-flex justify-content-center align-items-center" style="height:100px">
+                                                        <input type="text" class="form-control p-0" id="question" name="quesStatement" required style="height:100px" placeholder="write your question here" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#exampleModalCenter">
+                                                        <a href="#" style="font-size:25px; color:gray"><i
+                                                                        class="fas fa-images">image</i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center">
+
+                                                        <i onclick="tick(this)" id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray"></i>
+
+                                                    </div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" class="form-control p-0" id="option1" name="1" required style="height:50px" placeholder="answer option 1" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Insert Image</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="file-upload-wrapper">
+                                                                    <input type="file" id="input-file-now" class="file-upload" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Upload</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><i onclick="tick(this)" id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray;"></i></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px;">
+                                                        <input type="text" class="form-control p-0" id="option2" name="2" required style="height:50px;" placeholder="answer option 2" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><i id="tick" onclick="tick(this)" class="fas fa-check-circle" style="font-size:40px; color:gray;"></i></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px;">
+                                                        <input type="text" class="form-control p-0" id="option3" name="3" style="height:50px;" placeholder="answer option 3" aria-label="" aria-describedby="basic-addon1"></input>
+                                                        <a href="#"><i class="fas fa-trash-alt"
+                                                                        style="font-size:25px; color:gray;"></i></a>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><i id="tick" onclick="tick(this)" class="fas fa-check-circle" style="font-size:40px; color:gray;"></i></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px;">
+                                                        <input type="text" class="form-control p-0" id="option4" name="4" style="height:50px;" placeholder="answer option 4" aria-label="" aria-describedby="basic-addon1"></input>
+                                                        <a href="#"><i class="fas fa-trash-alt"
+                                                                        style="font-size:25px; color:gray"></i></a>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="row d-flex justify-content-start align-items-center mt-3 pl-3">
+                                                    <div class="col">
+                                                        <div class="form-group">
+
+                                                            <select name="difficulty" id="difficulty" style="height: 40px; width:200px"><i class="far fa-clock "></i>
+                                                                        <option >Easy</option>
+                                                                        <option >Medium</option>
+                                                                        <option >Hard</option>
+                                                                        
+                                                                    </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="maxpoint">Max Points</label>
+                                                            <select name="maxpoint" id="maxpoint" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
+
+                                                                        <option value="250">250</option>
+                                                                        <option value="500">500</option>
+                                                                        <option value="1000">1000</option>
+                                                                        <option value="2000">2000</option>
+
+                                                                    </select>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="row d-flex justify-content-start align-items-center">
+                                                    <div class="col-3 p-0 mt-3 border border-dark">
+                                                        <button type="button" class="btn btn-dark btn-block">tag topic</button>
+                                                    </div>
+                                                    <div class="col-7"></div>
+                                                </div>
+                                                <div class="row d-flex justify-content-start align-items-center d-flex justify-content-start align-items-center mt-3 p-0">
+                                                    <div class="row p-0 m-0 d-flex justify-content-center align-items-center">
+                                                        <div class="col-lg-6 col-sm-12 p-0" style="height:40px; width:70px">
+
+                                                            <select name="timer" id="timer" style="height:40px; width:200px"><i
+                                                                            class="far fa-clock "></i>
+                                                                        <option value="10">10 Seconds</option>
+                                                                        <option value="20">20 Seconds</option>
+                                                                        <option value="30">30 Seconds</option>
+                                                                        <option value="45">45 Seconds</option>
+                                                                        <option value="60 ">60 Seconds</option>
+                                                                        <option value="120">2 Minutes</option>
+                                                                       
+                                                                    </select>
+                                                        </div>
+
+                                                        <div class="col-lg-3  col-sm-12 p-0 mt-2">
+                                                            <button type="button" class="btn btn-danger btn-sm btn-block p-0" style="height:40px;">cancel</button>
+                                                        </div>
+                                                        <input type="hidden" id="correct_option" name="correctoption" value="">
+
+                                                        <div class="col-lg-3 col-sm-12 p-0 mt-2">
+                                                            <button type="button" onclick="mcqajax()" onclick="increment()" id="#mcqbutton" class="btn btn-success btn-sm btn-block ml-1 p-0" style="height:40px;">save</button>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--MCQ MODEL END-->
+
+    <!--dom div end for mcq-->
+
+
+    <!--FILL IN THE BLACK START-->
+
+    <div class="modal fade bd-example2-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="tab-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Multiple choice question</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="tab-pane fade show active" id="mcq">
+                        <div class="container p-0 m-0 mcq-xl" id="mcq">
+                            <div class=" row d-flex justify-content-center align-items-start" style="height:100vh ;">
+                                <form id="myform">
+
+                                    <div class=" col-6 col-sm-12 bg-dark">
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-9 d-flex justify-content-center align-items-center" style="height:100px">
+                                                        <input type="text" id="questionf" class="form-control p-0" style="height:100px" placeholder="write your question here" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#exampleModalCenter">
+                                                        <a href="#" style="font-size:25px; color:gray;"><i class="fas fa-images">image</i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Insert Image</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="file-upload-wrapper">
+                                                                    <input type="file" id="input-file-now" class="file-upload" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Upload</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-start align-items-center mt-3 mb-3 pl-3">
+                                                    <div class="col" style="color:gray">
+                                                        Add the answer
+                                                    </div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" id="option1f" class="form-control p-0" style="height:50px" placeholder="  Answer*" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" id="option2f" class="form-control p-0" style="height:50px" placeholder="  Answer 2" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" id="option3f" class="form-control p-0" style="height:50px" placeholder="  Answer 3" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                </div>
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" id="option4f" class="form-control p-0" style="height:50px" placeholder="  Answer 4" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row d-flex justify-content-start align-items-center mt-3 pl-3">
+                                                    <div class="col">
+                                                        <div class="form-group">
+
+                                                            <select name="difficulty" id="difficulty_fill" style="height: 40px; width:200px"><i class="far fa-clock "></i>
+                                                                <option value="Easy" >Easy</option>
+                                                                <option value="Medium" >Medium</option>
+                                                                <option value="Hard" >Hard</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="maxpoint">Max Points</label>
+                                                            <select name="maxpoint" id="maxpoint_fill" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
+                                                                <option value="250">250</option>
+                                                                <option value="500">500</option>
+                                                                <option value="1000">1000</option>
+                                                                <option value="2000">2000</option>
+                                                            </select>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="row d-flex justify-content-start align-items-center">
+                                                    <div class="col-3 p-0 mt-3 border border-dark">
+                                                        <button type="button" class="btn btn-dark btn-block">tag topic</button>
+                                                    </div>
+                                                    <div class="col-7"></div>
+                                                </div>
+
+
+                                                <div class="row d-flex justify-content-start align-items-center d-flex justify-content-start align-items-center mt-3 p-0">
+                                                    <div class="row p-0 m-0 d-flex justify-content-center align-items-center">
+                                                        <div class="col-lg-6 col-sm-12 p-0 d-flex justify-content-start" style="height:40px; width:70px;">
+
+                                                            <!-- timer for fill  -->
+                                                            <select name="timer" id="timer_fill" style="height:40px; width:200px"><i
+                                                             class="far fa-clock "></i>
+                                                            <option value="10">10 Seconds</option>
+                                                            <option value="20">20 Seconds</option>
+                                                            <option value="30">30 Seconds</option>
+                                                            <option value="45">45 Seconds</option>
+                                                            <option value="60 ">60 Seconds</option>
+                                                            <option value="120">2 Minutes</option>
+                                                           
+                                                        </select>
+                                                        </div>
+                                                        <div class="col-lg-3  col-sm-12 p-0 mt-2">
+                                                            <button type="button" class="btn btn-danger btn-sm btn-block p-0" style="height: 40px">cancel</button>
+                                                        </div>
+                                                        <div class="col-lg-3 col-sm-12 p-0 mt-2">
+                                                            <button type="button" onclick="fillajax()" class="btn btn-success btn-sm btn-block ml-1 p-0" style="height: 40px">save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--FILL IN THE BLACK CLOSE-->
+
+    <!--POLL MODEL START-->
+
+
+    <div class="modal fade bd-example1-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="tab-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Multiple choice question</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="tab-pane fade show active" id="mcq">
+                        <div class="container p-0 m-0 mcq-xl" id="mcq">
+                            <div class=" row d-flex justify-content-center align-items-start" style="height:100vh ;">
+                                <form id="myform">
+
+                                    <div class=" col-6 col-sm-12 bg-dark">
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-9 d-flex justify-content-center align-items-center" style="height:100px">
+                                                        <input type="text" class="form-control p-0" id="questionp" style="height:100px" placeholder="write your question here" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#exampleModalCenter">
+                                                        <a href="#" style="font-size:25px; color:gray"><i class="fas fa-images">image</i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-4">
+                                                    <div class="col">
+                                                        <input type="checkbox" id="sel" name="sel" value="Allow Multiple Selection"></input>
+                                                        <label for="sel">&nbsp;&nbsp;Allow Multiple Selection</label><br></br>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle"  style="font-size:40px; color:gray"></i></a></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" class="form-control p-0" id="option1p" style="height:50px" placeholder="answer option 1" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray"></i></a></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" class="form-control p-0" id="option2p" style="height:50px" placeholder="answer option 2" aria-label="" aria-describedby="basic-addon1"></input>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle" style="font-size:40px; color:gray"></i></a></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px">
+                                                        <input type="text" class="form-control p-0" id="option3p" style="height:50px" placeholder="answer option 3" aria-label="" aria-describedby="basic-addon1"></input>
+                                                        <a href="#"><i class="fas fa-trash-alt" style="font-size:25px; color:gray"></i></a>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Insert Image</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="file-upload-wrapper">
+                                                                    <input type="file" id="input-file-now" class="file-upload" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Upload</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-center mt-3">
+                                                    <div class="col-1 p-0 d-flex justify-content-center"><a href="#"><i id="tick" class="fas fa-check-circle" style="font-size:40px;color:gray"></i></a></div>
+                                                    <div class="col-11 d-flex justify-content-center align-items-center" style="height:50px;">
+                                                        <input type="text" class="form-control p-0" id="option4p" style="height:50px;" placeholder="answer option 4" aria-label="" aria-describedby="basic-addon1"></input>
+                                                        <a href="#"><i class="fas fa-trash-alt" style="font-size:25px; color:gray;"></i></a>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="row d-flex justify-content-start align-items-center mt-3 pl-3">
+                                                    <div class="col">
+                                                        <div class="form-group">
+
+                                                            <select name="difficulty" id="difficulty" style="height: 40px; width:200px"><i class="far fa-clock "></i>
+                                                                <option >Easy</option>
+                                                                <option >Medium</option>
+                                                                <option >Hard</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="maxpoint">Max Points</label>
+                                                            <select name="maxpoint" id="maxpoint" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
+                                                                <option value="250">250</option>
+                                                                <option value="500">500</option>
+                                                                <option value="1000">1000</option>
+                                                                <option value="2000">2000</option>
+                                                            </select>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-start align-items-center">
+                                                    <div class="col-3 p-0 mt-3 border border-dark">
+                                                        <button type="button" class="btn btn-dark btn-block">tag topic</button>
+                                                    </div>
+                                                    <div class="col-7"></div>
+                                                </div>
+
+                                                <div class="row d-flex justify-content-start align-items-center d-flex justify-content-start align-items-center mt-3 p-0">
+                                                    <div class="row p-0 m-0 d-flex justify-content-center align-items-center">
+                                                        <div class="col-lg-6 col-sm-12 p-0" style="height: 40px; width:70px;">
+
+                                                            <select name="cars" id="cars" style="height: 40px; width:200px;"><i class="far fa-clock "></i>
+                                                                    <option value="30 Seconds">30 Seconds</option>
+                                                                    <option value="5 Seconds">5 Seconds</option>
+                                                                    <option value="10 Seconds">10 Seconds</option>
+                                                                    <option value="20 Seconds">20 Seconds</option>
+                                                                    <option value="45 Seconds">45 Seconds</option>
+                                                                    <option value="60 Seconds">60 Seconds</option>
+                                                                    <option value="2 Minutes">2 Minutes</option>
+                                                                    <option value="3 Minutes">3 Minutes</option>
+                                                                    <option value="5 Minutes">5 Minutes</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-lg-3  col-sm-12 p-0 mt-2">
+                                                            <button type="button" class="btn btn-danger btn-sm btn-block p-0" style="height: 40px">cancel</button>
+                                                        </div>
+                                                        <div class="col-lg-3 col-sm-12 p-0 mt-2">
+                                                            <button type="button" onclick="pollajax()" class="btn btn-success btn-sm btn-block ml-1 p-0" style="height: 40px">save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+
                         </div>
     
                     </div>
-                   
-              </div>
-             <!--dom div end for mcq-->
 
 
-            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-       </body>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--POLL MODEL COLSE-->
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 
 </html>
