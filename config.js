@@ -1,10 +1,9 @@
-
-config={
-    host:'localhost',
-    user:'root',
-    password:'Laxman@1594',
-    database:'kviz'
-}
+config = {
+    host: 'localhost',
+    user: 'root',
+    password: 'kuldeep123',
+    database: 'kviz',
+};
 
 /* 
 function fetchfromdatabase(sql,data){
@@ -12,21 +11,21 @@ function fetchfromdatabase(sql,data){
     return new Promise((resolve,reject)=>{
 connection.query(sql,data, function (error, results) {
     if (error) { */
-          //throw error;
-        /*   return reject(error) */
-      /* res.json({
+//throw error;
+/*   return reject(error) */
+/* res.json({
           status:false,
           message:'there are some error with query'
       }) */
-   /*  }else{ */
-        /* res.json({
+/*  }else{ */
+/* res.json({
           status:true,
           data:results,
           message:'user registered sucessfully'
           
       }) */
 
-      /* console.log(results);
+/* console.log(results);
       return resolve(results);
     }
   });
@@ -34,8 +33,4 @@ connection.query(sql,data, function (error, results) {
 });
 
 } */
-module.exports =config;
-    
- 
-   
-
+module.exports = config;
