@@ -1,9 +1,8 @@
-
-config={
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'kvizz'
+config = {
+    host: 'localhost',
+    user: 'root',
+    password: 'Ravikiran@123',
+    database: 'kvizz'
 }
 
 /* 
@@ -12,21 +11,21 @@ function fetchfromdatabase(sql,data){
     return new Promise((resolve,reject)=>{
 connection.query(sql,data, function (error, results) {
     if (error) { */
-          //throw error;
-        /*   return reject(error) */
-      /* res.json({
-          status:false,
-          message:'there are some error with query'
-      }) */
-   /*  }else{ */
-        /* res.json({
+//throw error;
+/*   return reject(error) */
+/* res.json({
+    status:false,
+    message:'there are some error with query'
+}) */
+/*  }else{ */
+/* res.json({
           status:true,
           data:results,
           message:'user registered sucessfully'
           
       }) */
 
-      /* console.log(results);
+/* console.log(results);
       return resolve(results);
     }
   });
@@ -34,8 +33,4 @@ connection.query(sql,data, function (error, results) {
 });
 
 } */
-module.exports =config;
-    
- 
-   
-
+module.exports = config;

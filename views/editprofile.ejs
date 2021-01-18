@@ -63,19 +63,19 @@
     <div class=" row  d-flex m-lg-4">
        <div class="col-md-6">
         <h6>Username:</h6>
-        <input type="text" class="form-control" id="uname" placeholder="Username" value=<%= userinfo.email%> style="width:200px">
+        <input type="text" class="form-control" id="uname" placeholder="Username" name="Username" value=<%= userinfo.email%> style="width:200px">
        </div>
        
        <div class="col-md-6">
         <h6>Name:</h6>
-        <input type="text" class="form-control" id="uname" placeholder="fullname" value="<%= userinfo.fullname%>" style="width:200px">
+        <input type="text" class="form-control" id="uname" placeholder="fullname" name="fullname" value="<%= userinfo.fullname%>" style="width:200px">
        </div>
      
     
     </div>
    <div class="row m-lg-4">
     <h6>Email:</h6>
-    <input type="email" class="form-control" id="uemail" placeholder="email" value=<%= userinfo.email%>>
+    <input type="email" class="form-control" id="uemail" placeholder="email" name="email" value=<%= userinfo.email%>>
     <button class="btn btn-danger mt-3" type="button" style="width:150px;margin-left:350px ;">Delete account</button>
                 
     </div>
@@ -96,18 +96,18 @@
                     <div class=" row  d-flex m-lg-4">
                        <div class="col-md-6">
                         <h6>Organization:</h6>
-                        <input type="text" class="form-control" id="uname" placeholder="organization name" value="<%= org_details.organization%>" style="width:200px">
+                        <input type="text" class="form-control" id="uname" placeholder="organization name" name="org_name" value="<%= org_details.organization%>" style="width:200px">
                        </div>
                        
                        <div class="col-md-6">
                         
                         <div class="form-group">
                             <label for="sel1"><h6>Language :</h6></label>
-                            <select class="form-control" id="sel1">
-                              <option>English</option>
-                              <option>Hindi</option>
-                              <option>Japanese</option>
-                              <option>French</option>
+                            <select name="langauage" class="form-control" id="sel1">
+                              <option value="english">English</option>
+                              <option value="Hindi">Hindi</option>
+                              <option value="Japanese">Japanese</option>
+                              <option value="French">French</option>
                             </select>
                           </div>
                        </div>
@@ -118,12 +118,12 @@
                     <!-- <input type="email" class="form-control" id="uemail" placeholder="email"> -->
                     <div class="form-group">
                         <label for="sel1"><h6>Account Type :</h6></label>
-                        <select class="form-control" id="sel1">
-                          <option>student</option>
-                          <option>Teacher</option>
-                          <option>Invigilator
+                        <select name="account_type" class="form-control" id="sel1">
+                          <option value="student">student</option>
+                          <option value="teacher">Teacher</option>
+                          <option value="invigilator">Invigilator
                           </option>
-                          <option>Quiz admin</option>
+                          <option value="quiz_admin">Quiz admin</option>
                         </select>
                       </div>
                    </div>
