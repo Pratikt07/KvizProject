@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var Config = require('../config');
 const fs = require('fs');
 var Promise = require("bluebird");
+const rootPath = require('../rootPath')
 const exportResponseToExcel = require('../models1/exportService');
 
 const db=require('../models/index');
@@ -32,26 +33,23 @@ module.exports.addResponse = async (req, res) => {
             "CorrectOrIncorrect",
             
         ]
-     
-        for(let i=0;i<question_resp.length-1;i++){
+        
+        for(let i=0;i<(JSON.parse(JSON.stringify(question_resp)).length);i++){
            
             let result = {};
             console.log(JSON.parse(question_resp[i]));
-
-
             let stmnt = JSON.parse(question_resp[i]).response_answer_statement;
-
             console.log(" response statement = "+JSON.parse(JSON.stringify(question_resp[i])));
             if(stmnt){
 
             }else{
                 stmnt = null;
             }
-        var query = `INSERT INTO offline_responses ( participant_id, quiz_id, option_id, question_id, response_statement,  is_correct) VALUES (${req.body.participant_id},
+        var query = `INSERT INTO responses ( participant_id, quiz_id, option_id, question_id, response_statement,  is_correct) VALUES (${req.body.participant_id},
             ${req.body.quiz_id} ,
             ${JSON.parse(question_resp[i]).response_answer_id} ,
             ${JSON.parse(question_resp[i]).question_id},
-            ${stmnt},
+            "${stmnt}",
             ${JSON.parse(question_resp[i]).isCorrect})`;
         
         
@@ -100,19 +98,10 @@ module.exports.addResponse = async (req, res) => {
                 result.option_state4 = "" ;
             }
             else{
-                if(options[0])
                 result.option_state1 = options[0].option_statement ;
-
-                if(options[1])
                 result.option_state2 = options[1].option_statement ;
-
-                if(options[2])
                 result.option_state3 = options[2].option_statement ;
-
-                if(options[3]){
-                    result.option_state4 = options[3].option_statement ;
-                }
-               
+                result.option_state4 = options[3].option_statement ;
             }
            
             result.response = resp_stmt;
@@ -122,15 +111,14 @@ module.exports.addResponse = async (req, res) => {
             
       
         }
-        await fs.open(`public/student responses/${req.body.participant_id}-${participant.fullname}.xlsx`, 'w', function (err, file) {
+        const filePath = rootPath +`/public/responses_offline/${Date.now()}-${participant.fullname}.xlsx`
+        fs.appendFile(filePath, '', function (err) {
             if (err) throw err;
-
-            console.log('Excel file created!');
-
+            console.log('Saved!');
           });
 
         const workSheetName = "Response of "+req.body.quiz_id+" quiz";
-        const filePath = `public/student responses/${req.body.participant_id}-${participant.fullname}.xlsx`;
+       
 
       await exportResponseToExcel(results, workSheetColumnName, workSheetName, filePath);
    

@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "kuldeep123",
-    "database": "kviz",
+    "password": "root",
+    "database": "kvizz",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
