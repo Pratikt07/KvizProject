@@ -40,6 +40,7 @@ const createQuizRouter = require('./routes/createQuizRoute');
 const fetchquizRouter = require('./routes/fetchquizRoute');
 const profileRouter = require('./routes/profileRoute');
 const premiumRouter = require('./routes/premiumRoute');
+
 const editprofileRouter = require('./routes/editprofileRoute.js');
 const paymentSuccessRouter = require('./routes/paymentSuccessRoute.js');
 const paymentSuccess1Router = require('./routes/paymentSuccess1Route.js');
@@ -49,6 +50,7 @@ const addResponseRouter = require('./routes/addResponseRouter');
 const { Question, Option, Player, Quiz, Game } = require('./models1/class');
 const { getQuizByid } = require('./models1/getquiz');
 let games = new Map();
+
 
 /*                                                                              
 MIDDLEWARE STACK
@@ -132,6 +134,7 @@ app.use('/api/v1/createQuiz', createQuizRouter);
 app.use('/api/v1/doneQuiz', doneQuizRouter);
 app.use('/api/v1/profile', profileRouter); ///api/v1/premium
 app.use('/api/v1/premium', premiumRouter);
+
 app.use('/api/v1/editprofile', editprofileRouter);
 app.use('/api/v1/paymentsuccess', paymentSuccessRouter);
 app.use('/api/v1/paymentsuccess1', paymentSuccess1Router);
@@ -332,6 +335,7 @@ io.on('connection', (socket) => {
         console.log(`user${socket.userId} disconnected`);
     });
 });
+
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

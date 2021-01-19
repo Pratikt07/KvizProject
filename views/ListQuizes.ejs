@@ -44,6 +44,7 @@
    <div class="row mt-5 flex-wrap">
        
         <% for(let a=0; a< results.length ;a++){
+          //console.log("quiz_id of "+ a +" = "+ results[a].quiz_id);
             %>
             <a href=<%="/api/v1/fetchquiz?id="+results[a].quiz_id%> style="text-decoration: none;color: black;">
         <div class="col  mt-3 ml-2" >

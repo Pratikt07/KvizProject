@@ -50,7 +50,10 @@
             <script>
                 var temp =localStorage.getItem("offline_quiz");// question array of quiz
                 var quiz = JSON.parse(temp);
+
                  var userId =  "<%= username %>";
+
+
                  var quizId =  <%= quiz_id %>;
                 var time =localStorage.getItem("timer");// overall timer
                 var ot = JSON.parse(time);

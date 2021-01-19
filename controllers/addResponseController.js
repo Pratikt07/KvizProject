@@ -37,7 +37,10 @@ module.exports.addResponse = async (req, res) => {
            
             let result = {};
             console.log(JSON.parse(question_resp[i]));
-            let stmnt = JSON.parse(JSON.stringify(question_resp[i])).response_answer_statement;
+
+
+            let stmnt = JSON.parse(question_resp[i]).response_answer_statement;
+
             console.log(" response statement = "+JSON.parse(JSON.stringify(question_resp[i])));
             if(stmnt){
 
@@ -121,7 +124,9 @@ module.exports.addResponse = async (req, res) => {
         }
         await fs.open(`public/student responses/${req.body.participant_id}-${participant.fullname}.xlsx`, 'w', function (err, file) {
             if (err) throw err;
+
             console.log('Excel file created!');
+
           });
 
         const workSheetName = "Response of "+req.body.quiz_id+" quiz";
