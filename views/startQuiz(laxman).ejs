@@ -46,40 +46,13 @@
    
     <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/assets/compheader.css" rel="stylesheet">
-  
+           
             <script>
-                var temp =localStorage.getItem("offline_quiz");// question array of quiz
+                var temp =localStorage.getItem("offline_quiz");// queation array of quiz
                 var quiz = JSON.parse(temp);
 
-                 var userId =  "<%= username %>";
-
-
-                 var quizId =  <%= quiz_id %>;
                 var time =localStorage.getItem("timer");// overall timer
                 var ot = JSON.parse(time);
-
-                let Qresp = [];
-                var response = {
-                    participant_id : userId,
-                    quiz_id : quizId,
-                    question_resp :  [],
-                    total_marks: 0,
-                    score : 0
-                    
-                    
-                };
-
-
-
-                let question_response = {
-                    question_id : 0,
-                    response_answer_id : 0,
-                    isCorrect : false,
-                    response_answer_statement : ""
-                };
-
-               //console.log("userid = "+userId+" quiz_id = "+quizId);
-                //console.log("temp = "+temp+" time = "+time);
 
                 var index=-1;
                 var answer ="";
@@ -97,8 +70,7 @@
                     var second = s % 60;
                     return (minute).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+':'+(second).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
                 }
-               
-                async function timer(){
+               async function timer(){
                     var counter=0;
                    await LoadQuestion();
                   //  let q_timer = quiz[index].question_timer;
@@ -123,23 +95,65 @@
                         counter+=1;
                     }, 1000);
         
+                    function timeIt() {
+                        let ts = timeleft-counter
+                        var s1="laxman"
+                       
+                      
+                            time.innerHTML=(convertSeconds(ts));
+                        
+                        
+                      
+                        if(timeleft==counter){//60 - 1 
+                            clearInterval(interval);
+                          
+                            
+                            new Audio('bell.mp3').play();//
+                            console.log("done");
+
+                            setTimeout(()=>{
+                                console.log("question doen");
+                               counter = 0;
+                            },3000)
+                           
+                            
+                            // kuldeep emit event from here to change the question page
+                        }
+                        counter+=1;
+                    }
+                   
+        
                 }
                
 
-                let correct = false;
+                
+                function loadscore(){
+                    /*
+                        1.view hidden
+                        2.correct answer & score
+                        3.timer 5 seconds to display score
+                        4.again load question and start timer
+                        
+                    */
 
+                }
+                function changer(){
+                    var display = document.getElementById("main_frame");
+                   var dis = display.parentElement;
+                   display.style.visibility="hidden";
+                   console.log("incorrect answer")
+                       let w = document.getElementById("wrong");
+                       w.style.visibility = "visible";
+                       dis.innerHTML=w;
+                }
+
+               
                 async function handleClick(e){
-                   
-                    var ele =e;
-                    var a= e.getAttribute("value");
-                   //console.log("question  = "+JSON.stringify(quiz[index]));
-                   question_response.question_id = quiz[index].options[0].question_id;
-                   console.log("option id = "+JSON.stringify(quiz[index].options[0].question_id));
-                   question_response.response_answer_id = a;
-                   question_response.correct_id = answer;
-                   if(a==answer){
                     
-                       correct = true;
+                    var ele =e;
+                   var a= e.getAttribute("value");
+                   console.log("rahul",a);    
+                   if(a==answer){
                         ele.setAttribute("class","alert alert-primary bg-success");
                        document.getElementById("status").innerHTML= "correct";
                         var mp = quiz[index].max_points;
@@ -147,28 +161,20 @@
                         total.correct = total.correct+1;
                         document.getElementById("status").setAttribute("class","btn btn-primary d-flex align-items-center btn-success")
                         document.getElementById("attempted").innerHTML= "score :"+total.correct+"/"+quiz.length;
-                        question_response.isCorrect = correct;
-                        //console.log("question_response = "+question_response);
-                        Qresp.push(JSON.stringify(question_response));
                         setTimeout(async()=>{
                             ele.setAttribute("class","alert alert-primary");
-                            //console.log("inside in set timeout",a);
+                            console.log("inside in set timeout",a);
                             await LoadQuestion();
                          },1000)
 
                    }
                    else{
-                       correct = false;
                     ele.setAttribute("class","alert alert-primary bg-danger");
                     document.getElementById("status").innerHTML= "incorrect";
                     document.getElementById("status").setAttribute("class","btn btn-primary d-flex align-items-center btn-danger")
-                    //console.log(" inside login ");
+                    console.log(" inside login ");
                    // document.getElementById("timer").innerHTML= " incorrect answer";
                     document.getElementById("attempted").innerHTML= "score :"+(total.correct)+"/"+quiz.length;
-                    question_response.isCorrect = correct;
-                   //console.log("question_response = "+question_response);
-                   Qresp.push(JSON.stringify(question_response));
-                    //console.log("qresponse = "+Qresp); 
                     setTimeout(async()=>{
                         await ele.setAttribute("class","alert alert-primary");
                         console.log( "hi", await ele.setAttribute("class","alert alert-primary"));
@@ -183,22 +189,10 @@
                         document.getElementById("timer").innerHTML= "total Score : "+total.marks;
                         document.getElementById("attempted").innerHTML= "score :"+total.correct+"/"+quiz.length; 
                         document.getElementById("main_frame").style.visibility= "hidden";  
-                        document.getElementById("question_type").style.visibility= "hidden";  
-                        
-                        let end = document.getElementById("endQuiz").cloneNode(true);
-                        let parent = document.getElementById("main_frame");
-                        document.getElementById("question_type").style.display= "none";   
-
-                        end.style.visibility = "visible";
-                        parent.appendChild(end);
-
-                        response.total_marks = total.marks;
-                        response.score = total.correct;
-                        response.question_resp = Qresp;
-                        console.log("response = "+JSON.stringify(response));
-
-                       
-                   }  
+                        document.getElementById("question_type").style.visibility= "hidden";                      
+                   }
+                   
+                   
                 }
 
                 async function  LoadQuestion(){
@@ -233,7 +227,7 @@
                             document.getElementById("2").setAttribute("value",option2);
                             document.getElementById("3").setAttribute("value",option3);
                             document.getElementById("4").setAttribute("value",option4);
-                            //console.log("pratik",document.getElementById("1").getAttribute("value"));
+                            console.log("pratik",document.getElementById("1").getAttribute("value"));
                     
                             }
                         else{
@@ -248,29 +242,18 @@
                 }
 
                 async function handlefillAnswer(e){
-                    var response_statement = document.getElementById("fill").value;
+                    var response = document.getElementById("fill").value;
                     var ele = e.parentElement;
-
-                        question_response.response_answer_statement= response_statement; // back-end
-                        question_response.question_id = quiz[index].options[0].question_id;
-                       
-                        //question_response.question_id = quiz[index].question_id;
-                       
-                        console.log("qresponse = "+Qresp);
-                    question_response.correct_statement = quiz[index].options[0].option_statement;
-                    if(response_statement === quiz[index].options[0].option_statement||
-                    response_statement === quiz[index].options[1].option_statement||
-                    response_statement === quiz[index].options[2].option_statement){
-                        correct = true;
+                    if(response === quiz[index].options[0].option_statement||
+                    response === quiz[index].options[1].option_statement||
+                    response === quiz[index].options[2].option_statement){
                         document.getElementById("status").innerHTML= "correct";
                         document.getElementById("status").setAttribute("class","btn btn-primary d-flex align-items-center btn-success");                       
                         var mp = quiz[index].max_points;
                         total.marks=total.marks+mp;
                         total.correct = total.correct+1;
                         document.getElementById("attempted").innerHTML= "score :"+total.correct+"/"+quiz.length;
-                        question_response.isCorrect = correct;
-                        console.log("question_response = "+JSON.stringify(question_response));
-                        Qresp.push(JSON.stringify(question_response));
+                       
                         setTimeout(async()=>{
                             ele.parentNode.removeChild(ele);
                             document.getElementById("question_type").style.visibility= "visible";
@@ -278,60 +261,15 @@
                          },1000)
                     }  
                     else{
-                        correct = false;
                         document.getElementById("status").innerHTML= "incorrect";
                         document.getElementById("status").setAttribute("class","btn btn-primary d-flex align-items-center btn-danger")
                         document.getElementById("attempted").innerHTML= "score :"+(total.correct)+"/"+quiz.length;
-                        question_response.isCorrect = correct;
-                        console.log("question_response = "+JSON.stringify(question_response));
-                        Qresp.push(JSON.stringify(question_response));
                         setTimeout(async()=>{
                             ele.parentNode.removeChild(ele);
                             document.getElementById("question_type").style.visibility= "visible";
                                 await LoadQuestion(); 
                             },1000)
-                        } 
-                        
-                        if(index==quiz.length-1){
-                        clearInterval(interval);
-                        
-                        document.getElementById("complete").innerHTML = "congrats quiz completed";
-                        document.getElementById("timer").innerHTML= "total Score : "+total.marks;
-                        document.getElementById("attempted").innerHTML= "score :"+total.correct+"/"+quiz.length; 
-                        document.getElementById("main_frame").style.visibility= "hidden";  
-                        document.getElementById("question_type").style.display= "none";   
-                        
-                        let end = document.getElementById("endQuiz").cloneNode(true);
-                        let parent = document.getElementById("main_frame");
-                        end.style.visibility = "visible";
-                        parent.appendChild(end);
-
-                        
-                        
-                        
-                        response.total_marks = total.marks;
-                        response.score = total.correct;
-                        response.question_resp = Qresp;
-                        console.log("response = "+JSON.stringify(response));
-                    }   
-                    }
-
-                   async function sendResponse(){
-                        let URL =  `http://localhost:3000/api/v1/addResponse`;
-                        console.log("response object data = "+response);
-                        const resp = await fetch(URL, {
-                            method : "POST" ,
-                                    headers : {	   
-                                        "Content-Type": "Application/Json",
-                                        "Access-Control-Allow-Origin": "*",
-                                    },
-                                    body : JSON.stringify(response)
-                                })
-                            .then(response => {
-                                //console.log(response.json());
-                                window.location.href="/api/v1";
-                            })
-                            .catch(error => console.log('Authorization failed : ' + error.message));
+                        }  
                     }
                 
                 // async function  LoadQuestion1(){
@@ -430,7 +368,6 @@ label.radio span {
         <div class="conatiner mt-5 ">
             <!-- navbar component--> 
     <%- include('partials/navbar') %>
-   
         <div class="row " style="height:2vh"></div>
         <div class="container mt-2" style="margin-top:500px;">
             <div class="d-flex mt-5 justify-content-center row">
@@ -512,20 +449,6 @@ label.radio span {
                 </div>
 
         </div></div>
-        <div id = "endQuiz" class = "col" style="visibility: hidden;">
-            <div class="row">
-                <div class="alert alert-success">
-                    Congrats!!! You have successfully completed the Quiz.
-                </div>
-            </div>         
-            <div>
-                <div>Click on the done button to submit the responses</div>
-                <div class = "btn btn-outline-info" onclick="sendResponse()">
-                    Done
-                </div>
-            </div>
-            
-        </div>
         </body>
     </html>
       

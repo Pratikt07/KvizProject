@@ -41,8 +41,7 @@ exports.listQuizzes= async (req,res)=>{
     }
 }
 exports.fetchQuizz=async (req,res)=>{
-    //console.log("req.query fetchquiz = "req.query);
-    
+   // console.log(req.query);
     const quiz = await db.quiz.findOne({attributes:["quiz_id","tittle","description","overall_timer"],
     where: {quiz_id :req.query.id } 
     });
@@ -90,7 +89,7 @@ exports.fetchQuizz=async (req,res)=>{
         questions:question_list
     }
     //req.session.questions = question_array;
-    console.log("hello",question_array);
+    //console.log("hello",question_array);
     if(session_check_controller.check_session(req,res)){
        // console.log("inside checker")
          res.render('playQuiz.ejs',{session:session_check_controller.check_session(req,res),
