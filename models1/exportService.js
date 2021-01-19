@@ -14,8 +14,10 @@ const exportExcel = async (data, workSheetColumnNames, workSheetName, filePath) 
 }
 
 const exportResponseToExcel = (result, workSheetColumnNames, workSheetName, filePath) => {
+    var id = 0;
     const data = result.map(question => {
-        return [question.id, question.name, question.option_state-1,question.option_state-2,question.option_state-3,question.option_state-4,question.response,question.correct_answer,question.isCorrect];
+
+        return [++id, question.Question_statement, question.option_state1,question.option_state2,question.option_state3,question.option_state4,question.response,question.correct_Answer,question.CorrectOrIncorrect];
     });
     exportExcel(data, workSheetColumnNames, workSheetName, filePath);
 }
