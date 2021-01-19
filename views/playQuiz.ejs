@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Play Quiz</title>
+        <title>Title</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,9 +53,9 @@
         <p class="card-text">Quiz Description : <b><%=results.description%><b></p>
         <p class="card-text">Number of questions : <b><%=results.number%> <b></p>
             <p class="card-text">Quiz Time : <b><%=results.overall_timer%><b></p>
-               <a href=<%="/api/v1/upload-multiple-files?quiz_id="+quiz_id%> >  Start Quiz</a>
+               <a href="/api/v1/upload-multiple-files" >  Start Quiz</a>
                 <a href="/api/v1/offlineQuiz"> <button type="button" class="btn btn-primary">Back</button ></a>
-                  
+ 
             </div>
     </div>
   </div>
