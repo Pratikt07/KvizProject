@@ -362,25 +362,72 @@ label.radio span {
     outline: 0 !important;
     box-shadow: none !important
 }
-            </style>
+body,
+  html {
+      height: 100%;
+  }
+  
+  * {
+      box-sizing: border-box;
+  }
+  
+  body {
+      margin: 0;
+      padding: 0;
+  }
+  
+  .bg-image {
+      /* The image used */
+      background-image: url("/assets/img/bg.jpg");
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+      /* Full height */
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      margin: 0;
+      background-position: center center;
+      background-attachment: fixed;
+  }
+  /* Position text in the middle of the page/image */
+  
+  .bgg-text {
+      /* Fallback color */
+      /* Black w/opacity/see-through */
+      color: black;
+      position: absolute;
+      left:11%;
+      width: 80%;
+      z-index: 2;
+  }
+  
+
+</style>
 </head>
      <body  onload="timer()"  style="margin: 0;">
-        <div class="conatiner mt-5 ">
+        <div class="bg-image"></div>
+        <div class="container-fluid mt-5 bgg-text">
             <!-- navbar component--> 
     <%- include('partials/navbar') %>
-        <div class="row " style="height:2vh"></div>
-        <div class="container mt-2" style="margin-top:500px;">
+        
+        <div class="container mt-2 col-lg-12" style="margin-top:500px;">
             <div class="d-flex mt-5 justify-content-center row">
                 <div class="col-md-10 col-lg-10">
                     <div class="border">
                         <div class="question bg-white p-3 border-bottom">
                             <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                                <h4 id="complete">MCQ Quiz</h4><span ><h3 id="timer"></h3> </span>
+                                <h4 class="text-center" id="complete">MCQ Quiz</h4><span ><h3 id="timer"></h3> </span>
                             </div>
                         </div>
                         <div class="question bg-white p-3 border-bottom" id="main_frame" style="visibility: visible;">
-                            <div class="d-flex flex-row align-items-center question-title">
-                                <h3 class="text-danger">Q.</h3>
+                            <div class="d-flex flex-row justify-content-center align-items-center question-title p-0"  style="border-bottom:1px solid rgb(2, 2, 2,0.1);">
+                                <h3 class="text-danger ">Q.</h3>
                                 <h5 class="mt-1 ml-2" id="question">Which of the following country has largest population?</h5>
                             </div>
 
@@ -388,7 +435,7 @@ label.radio span {
                             <div class="ans ml-2">
                                 <label class="radio"> <input type="radio"  >
                                    
-                                     <div  id="1"  onclick="handleClick(this)" name="" value="option 1" class="alert alert-primary" role="alert">
+                                     <div  id="1"  onclick="handleClick(this)" name="" value="option 1" class="alert alert-primary mt-3" role="alert">
                                     This is a primary alert—check it out!
                                   </div>
                                 </label>
@@ -414,8 +461,8 @@ label.radio span {
                             
                                 <div class="ans ml-2">
                                     <label class="radio"> <input type="radio"  name="brazil" value="brazil">
-                                        <div  id="4"  onclick="handleClick(this)"  name="" value="" class="alert alert-primary" role="alert">
-                                            This is a primary alert—check it out!</div>
+                                        <div id="4"  onclick="handleClick(this)"  name="" value="" class="alert alert-primary" role="alert">
+                                         is a primary alert—check it out!</div>
                                     </label>
                                 </div>
                             </div>

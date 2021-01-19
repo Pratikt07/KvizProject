@@ -35,33 +35,93 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link href="/assets/compheader.css" rel="stylesheet">
 </head>
+<style>
+  body,
+  html {
+      height: 100%;
+  }
+  
+  * {
+      box-sizing: border-box;
+  }
+  
+  body {
+      margin: 0;
+      padding: 0;
+  }
+  
+  .bg-image {
+      /* The image used */
+      background-image: url("/assets/img/bg.jpg");
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+      /* Full height */
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      margin: 0;
+      background-position: center center;
+      background-attachment: fixed;
+  }
+  /* Position text in the middle of the page/image */
+  
+  .bgg-text {
+      /* Fallback color */
+      /* Black w/opacity/see-through */
+      color: black;
+      position: absolute;
+      left: 16%;
+      z-index: 2;
+  }
+  
+</style>
+
   <body>
-   
+   <div class="bg-image"></div>
 <!--navabar component-->
     <%- include('partials/navbar') %>
-      <div class="container">
-    <div class="row row-cols-1  justify-content-center align-items-center d-flex-wrap row-cols-md-3 g-4">
-  <div class="col shadow d-flex justify-content-center" >
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded h-100"style="width: 50rem;">
-        <div class="d-flex shadow-lg p-3 mb-5 bg-white rounded justify-content-center" style="height: 25rem;width: 45rem;">
-            <img src="/sample.jpeg" class="card-img-top" alt="...">
-    
-        </div>       
-        <div class="card-body justify-content-center align-items-center"> 
-        <p><h5 class="card-title">Quiz Details</h5></p>
-        <p class="card-text">Quiz name : <b><%=results.name%><b></p>
-        <p class="card-text">Quiz Description : <b><%=results.description%><b></p>
-        <p class="card-text">Number of questions : <b><%=results.number%> <b></p>
+    <div class="container p-5 mt-5 d-flex justify-content-center bgg-text">
+    <div class="card mt-5 p-0 mb-3" style="max-width: 640px;">
+      <div class="row no-gutters p-0">
+        <div class="col-md-5 p-0">
+          <img src="/sample.jpeg" class="card-img p-0" alt="..." style="background-size: cover; height: 100%; width:100%;">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h1 class="card-title"><b>Quiz Details</b></h1>
+            <p class="card-text"><b>Quiz name : <b><%=results.name%><b></p>
+            <p class="card-text">Quiz Description : <b><%=results.description%><b></p>
+            <p class="card-text">Number of questions : <b><%=results.number%> <b></p>
             <p class="card-text">Quiz Time : <b><%=results.overall_timer%><b></p>
-               <a href="/api/v1/upload-multiple-files" >  Start Quiz</a>
-                <a href="/api/v1/offlineQuiz"> <button type="button" class="btn btn-primary">Back</button ></a>
- 
-            </div>
+              <a href="/api/v1/upload-multiple-files" >  Start Quiz</a>
+              <a href="/api/v1/offlineQuiz"> <button type="button" class="btn btn-primary">Back</button ></a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
- 
-
-</div>
+    </div>
+    <!--<div class="container">
+      <div class="shadow-lg pt-5 mb-5 mt-5 bg-white rounded d-flex justify-content-center w-60" >
+        <div><img src="/sample.jpeg" class="card-img-top" alt="..." style="height: 400px;width: 400px;"></div>
+        <div class="card-body pl-5"> 
+          <p><h5 class="card-title">Quiz Details</h5></p>
+          <p class="card-text">Quiz name : <b><%=results.name%><b></p>
+          <p class="card-text">Quiz Description : <b><%=results.description%><b></p>
+          <p class="card-text">Number of questions : <b><%=results.number%> <b></p>
+              <p class="card-text">Quiz Time : <b><%=results.overall_timer%><b></p>
+                 <a href="/api/v1/upload-multiple-files" >  Start Quiz</a>
+                  <a href="/api/v1/offlineQuiz"> <button type="button" class="btn btn-primary">Back</button ></a>
+    
+            </div>
+      </div> 
+    </div>-->
+    
 <div hidden id ="file" >
   <%=results.questions %>
 </div>
@@ -69,6 +129,7 @@
 <div hidden id ="timer" >
   <%=results.overall_timer %>
 </div>
+
 <script>
     
 let file1 = document.getElementById('file').innerHTML;

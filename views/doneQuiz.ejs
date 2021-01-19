@@ -35,31 +35,80 @@
     <link href="/createquizee.css" rel="stylesheet">
 </head>
 
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .bg-image {
+        content: '';
+        /* The image used */
+        background-image: url("/assets/img/bg.jpg");
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+    /* Position text in the middle of the page/image */
+    
+    .bgg-text {
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/opacity/see-through */
+        color: black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 8;
+    }
+</style>
+
 <body onload="checker()">
     <!--NAV-BAR-->
+    <div class="bg-image"></div>
     <%- include('partials/navbar') %>
 
-        <div class="container-fluid">
+        <div class="container-fluid bgg-text">
             <div class="row  align-items-center  mt-2" style="height:100vh;">
 
-                <div class="col-3 "></div>
-                <div class="col-6  ">
+                <div class="col-4 "></div>
+                <div class="col-4 ">
 
-                    <div class="form-create-body row ml-2 align-items-center">
-                        <div class="banner row m-2 align-items-center ">
-                            <div class="title col-4">
-                                <h3>Completing the details with quiz</h3>
+                    <div class="form-create-body row ml-2 align-items-center ">
+                        <div class="banner row  align-items-center pt-2 mt-4 mb-3">
+                            <div class="imag-wraper col-2 mb-2 pl-5">
+                                <img id="imgwraper" class="rounded mx-auto d-block" src="/assets/img/quize.jpg" alt="createaquiz" style="height:50;width:50" />
                             </div>
-                            <div class="col-6"></div>
+    
+                            <div class="col-10 mb-2 pl-5">
+                                <h4>Completing the detail of Quiz</h4>
+                            </div>
+    
                         </div>
-                        <div class="form">
+                        <div class="form ml-4" style="width:100%">
                             <form action="/api/v1/doneQuiz" method="POST">
                                 <div class="quiz-name-wrapper">
-                                    <div class="quize-name-input">
+                                    <div class="quize-name-input pr-3" style="color: black;">
 
                                         <label>1. overall time for  quiz</label> <br/>
 
-                                        <select name="overall_timer" id="maxpoint" style="height: 30px; width:8vw"><i class="far fa-clock "></i>
+                                        <select name="overall_timer" id="maxpoint" style="height: 30px; width:100%; color: rgb(117, 116, 116); padding-left: 5px;"><i class="far fa-clock"></i>
                                 <option value="900">15 minutes</option>
                                 <option value="1800">30 minutes</option>
                                 <option value="3600">60 minutes</option>
@@ -69,12 +118,12 @@
 
 
                                 </div>
-                                <div class="quiz-name-wrapper">
-                                    <div class="quize-name-input">
+                                <div class="quiz-name-wrapper pt-3 pb-3">
+                                    <div class="quize-name-input pr-3" style="color: black;">
 
                                         <label>2. presentation date of  quiz</label> <br/>
 
-                                        <input type="date" class="form-control " name="present_date" placeholder="Quiz name " />
+                                        <input type="date" class="form-control mr-5" name="present_date" placeholder="Quiz name " />
                                     </div>
 
 
@@ -85,13 +134,13 @@
                                 </div>
 
                                 <div class="hr"></div>
-                                <div class="action-button  m-2">
-                                    <button type="button" class="cancel-btn btn  btn-danger btn-sm">Cancel</button>
+                                <div class="action-button p-3">
+                                    <button type="button" class="cancel-btn btn  btn-danger btn-sm m-2 float-right">Cancel</button>
 
 
                                     <a class="nav-links" href="/QuizeSelector">
 
-                                        <button type="submit" class="save-nexbtnt btn btn-primary  btn-sm">Next</button>
+                                        <button type="submit" class="save-nexbtnt btn btn-primary btn-sm m-2 float-right">Next</button>
 
                                     </a>
 
@@ -103,7 +152,7 @@
 
                     <div class="col-3"></div>
                 </div>
-
+                 <div class="col-4 "></div>
             </div>
 
         </div>
