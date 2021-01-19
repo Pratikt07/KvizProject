@@ -12,10 +12,10 @@ class Question {
 }
 class Option {
     constructor(...args) {
-        this.option_id = args[0];
+        this.option_id = args[3];
         this.option_statement = args[1];
         this.option_serial = args[2];
-        this.option_counter = args[3];
+        this.option_counter = args[2];
     }
 }
 

@@ -1,6 +1,7 @@
 const db = require('../models/index');
 
 exports.getquizes = async (req, res) => {
+    console.log('hello');
     let quizes = await db.quiz.findAll({ attributes: { exclude: ['quiz_thumbnail'] } });
     let quizList = [];
     if (quizes) {
