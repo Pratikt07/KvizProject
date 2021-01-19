@@ -42,11 +42,13 @@
         height: 100%;
     }
     
-    * {
-        box-sizing: border-box;
+    body {
+        margin: 0;
+        padding: 0;
     }
     
     .bg-image {
+        content: '';
         /* The image used */
         background-image: url("/assets/img/bg.jpg");
         /* Add the blur effect */
@@ -57,7 +59,10 @@
         /* Center and scale the image nicely */
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         background-size: cover;
+        width: 100vw;
+        height: 100vh;
     }
     /* Position text in the middle of the page/image */
     
@@ -76,7 +81,7 @@
 </style>
 
 
-<body onload="checker()">
+<body onload="checker()" class="blurimg">
     <div class="bg-image"></div>
     <!--NAV-BAR-->
     <%- include('partials/navbar') %>
@@ -97,6 +102,7 @@
                         </div>
                         <div class="form-group">
                             <label for="emaail">3.Choose Relevant Subjects</label>
+
                         </div>
                         <button type="submit" class="btn btn-primary">Cancel</button>
                         <button type="submit" class="btn btn-primary">Next</button>
