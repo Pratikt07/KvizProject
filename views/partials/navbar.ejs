@@ -1,42 +1,43 @@
+<header id="header" class="fixed-top d-flex align-items-center  header-transparent " style="background:rgb(50, 53, 72);">
+    <div class="container d-flex align-items-center">
 
+        <div class="logo mr-auto">
+            <h1 class="text-light"><a href="index.html">Kvizz</a></h1>
 
-<header id="header" class="fixed-top d-flex align-items-center  header-transparent  " >
-  <div class="container d-flex align-items-center">
+        </div>
 
-      <div class="logo mr-auto">
-          <h1 class="text-light"><a href="index.html">Kvizz</a></h1>
-          
-      </div>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="/api/v1/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">How to work</a></li>
 
-      <nav class="nav-menu d-none d-lg-block">
-          <ul>
-            <li class="active"><a href="/api/v1/">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">How to work</a></li>
-           
-            <% if(!session) {%>
-              
-              <li><a href="#services">Services</a></li>
-              <li><a href="/api/v1/login">Sign in</a></li>
-              <li><a href="/api/v1/signup">Sign up</a></li>
-              <%}else {%>
-                <li><a href="/api/v1/joinquiz">Join quiz</a></li>
-                <li><a href="/api/v1/createQuiz">create Quiz</a></li>
-                <li><a href="/api/v1/offlineQuiz">offline quizz</a></li>
-                <li class="drop-down"><a href=""><%=username%></a>
-                  <ul>
-                      <li><a href="/api/v1/profile">Profile</a></li>
-                      <li><a href="/api/v1/premium">Go premium</a></li>
-                      <li><a href="/api/v1/logout">Logout</a></li>
-                      <li><a href="/api/v1/offlineQuiz">offline quizz</a></li>
-                  </ul>
-              </li>
-                <%}%>
-              
-              <li><a href="#contact">Contact</a></li>
+                <% if(!session) {%>
 
-          </ul>
-      </nav>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="/api/v1/login">Sign in</a></li>
+                    <li><a href="/api/v1/signup">Sign up</a></li>
+                    <%}else {%>
+                        <li><a href="/api/v1/joinquiz">Join quiz</a></li>
+                        <li><a href="/api/v1/createQuiz">create Quiz</a></li>
+                        <li><a href="/api/v1/offlineQuiz">offline quizz</a></li>
+                        <li class="drop-down">
+                            <a href="">
+                                <%=username%>
+                            </a>
+                            <ul>
+                                <li><a href="/api/v1/profile">Profile</a></li>
+                                <li><a href="/api/v1/premium">Go premium</a></li>
+                                <li><a href="/api/v1/logout">Logout</a></li>
+                                <li><a href="/api/v1/offlineQuiz">offline quizz</a></li>
+                            </ul>
+                        </li>
+                        <%}%>
 
-  </div>
+                            <li><a href="#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+
+    </div>
 </header>
