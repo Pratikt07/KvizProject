@@ -2,19 +2,25 @@
 
 var counter = 0;
 async function mcqajax() {
-    let userComment = document.querySelector("#question").value;
-    let op1 = document.querySelector("#option1").value;
-    let op2 = document.querySelector("#option2").value;
-    let op3 = document.querySelector("#option3").value;
-    let op4 = document.querySelector("#option4").value; // we are not using innerHTML wy bcz this is a form element
+    let userComment = document.querySelector("#mcqquestion").value;
+    let op1 = document.querySelector("#mcqoption1").value;
+    let op2 = document.querySelector("#mcqoption2").value;
+    let op3 = document.querySelector("#mcqoption3").value;
+    let op4 = document.querySelector("#mcqoption4").value; // we are not using innerHTML wy bcz this is a form element
 
     document.querySelector("#numinc");
     counter = counter + 1;
     console.log("inside mcqajax", counter);
     document.querySelector("#type").innerHTML = "(MCQ)";
     let res = await ajax(userComment, op1, op2, op3, op4, counter);
+    //let res = {};
+    //res.status = true;
     if (res.status) {
         //  we are not goint to use createElement
+
+
+
+
         const newElement = document
             .querySelector("#referenceCommentId")
             .cloneNode(true);
@@ -44,13 +50,14 @@ async function mcqajax() {
         const commentBox = document.querySelector("#commentBox");
         // now we want to add the element at the top.
         commentBox.appendChild(newElement);
-        //commentBox.insertBefore(newElement, commentBox.firstChild);
-        // clean the input box
-        document.querySelector("#question").value = "";
-        document.querySelector("#option1").value = "";
-        document.querySelector("#option2").value = "";
-        document.querySelector("#option3").value = "";
-        document.querySelector("#option4").value = "";
+
+
+        //clean the input box
+        document.querySelector("#mcqquestion").value = "";
+        document.querySelector("#mcqoption1").value = "";
+        document.querySelector("#mcqoption2").value = "";
+        document.querySelector("#mcqoption3").value = "";
+        document.querySelector("#mcqoption4").value = "";
         await unticker();
         alert("data inserted");
     } else {
@@ -281,4 +288,101 @@ async function untick() {
         console.log(i);
     }
     document.getElementById("correct_option").setAttribute("value", 0);
+}
+
+
+async function deleteQ(ele) {
+    console.log("hiiiii");
+    var srno = document.getElementById("questionName");
+    //console.log(srno.children[0].innerText);
+    let srNo = srno.children[0].innerText;
+    console.log("srNo =" + srNo);
+    var quiz_id = session.quizzid.quiz_id;
+    try {
+        await fetch('/api/v1/deletequestion?srno=' + srNo, {
+            method: "GET",
+            headers: {
+                "Content-Type": "Application/Json",
+                "Access-Control-Allow-Origin": "*",
+            },
+
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+    console.log(ele.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+    let div = ele.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+    let foo = div.parentNode;
+    console.log(foo);
+    //div.style = "display : none";
+    div.remove();
+    for (let i = 0; i < foo.children.length; i++) {
+        let child = foo.children[i];
+        let c1 = child.firstChild.nextSibling.firstChild.nextSibling.childNodes[1].childNodes[1].childNodes[1].childNodes[1].childNodes[1];
+        console.log(c1.innerText);
+        c1.innerHTML = srNo++;
+        console.log(c1.innerText);
+
+    }
+}
+
+async function editQ(ele) {
+
+    //ele.attributes(data - toggle, "modal");
+    let mod = document.getElementById("mcqModal");
+
+    //console.log(mod);
+    let div = ele.parentNode.parentNode.parentNode.parentNode.childNodes[2].nextSibling.nextSibling.nextSibling;
+    let val = ele.parentNode.parentNode.parentNode.parentNode.childNodes[2].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling;
+    let option1 = val.childNodes[1].childNodes[1].childNodes[1] //.nextSibling.childNodes[0];
+    let option2 = val.childNodes[1].childNodes[3].childNodes[0].nextSibling //.childNodes[3].childNodes[0];
+    let option3 = val.childNodes[3].childNodes[1].childNodes[0].nextSibling //.childNodes[3].childNodes[0];
+    let option4 = val.childNodes[3].childNodes[3].childNodes[0].nextSibling //.childNodes[3].childNodes[0];
+
+    let option1Style = option1.childNodes[0].nextSibling.childNodes[1] //.style.color;
+    let option2Style = option2.childNodes[0].nextSibling.childNodes[1] //.style.color;
+    let option3Style = option3.childNodes[0].nextSibling.childNodes[1] //.style.color;
+    let option4Style = option4.childNodes[0].nextSibling.childNodes[1] //.style.color;
+
+    console.log(div.innerText);
+
+    console.log(option1.innerText);
+    console.log(option2.childNodes[3].childNodes[0]);
+    console.log(option3.childNodes[3].childNodes[0]);
+    console.log(option4.childNodes[3].childNodes[0]);
+    let q = document.getElementById("mcqquestion");
+    q.value = div.innerText;
+    //q.setAttribute('value', div);
+    let op1 = document.querySelector("#mcqoption1");
+    op1.value = option1.innerText;
+
+    let op2 = document.querySelector("#mcqoption2");
+    op2.value = option2.innerText;
+    let op3 = document.querySelector("#mcqoption3");
+    op3.value = option3.innerText;
+    let op4 = document.querySelector("#mcqoption4");
+    op4.value = option4.innerText;
+
+    if (option1Style.style.color == "green") {
+        op1.style.color = "green";
+
+    } else if (option2Style.style.color == "green") {
+        op2.style.color = "green";
+
+    } else if (option3Style.style.color == "green") {
+        op3.style.color = "green";
+    } else {
+        op4.style.color = "green";
+    }
+    document.querySelector("#questionp").value = "";
+    document.querySelector("#option1p").value = "";
+    document.querySelector("#option2p").value = "";
+    document.querySelector("#option3p").value = "";
+    document.querySelector("#option4p").value = "";
+    $('#mcqModal').modal('show');
+
+
+
 }

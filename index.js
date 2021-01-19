@@ -13,7 +13,7 @@ const FileStore = require('session-file-store')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-var multer  = require('multer');
+var multer = require('multer');
 const exportUsersToExcel = require('./models1/exportService');
 const helpers = require('./controllers/helpers')
 const storage = require('./controllers/storageImg')
@@ -39,12 +39,13 @@ const addQuestionRouter = require('./routes/addQuestionRoute');
 const offlineQuizRouter = require('./routes/offlineQuizRoute');
 const startQuizRouter = require('./routes/startQuizRoute');
 const createQuizRouter = require('./routes/createQuizRoute');
-const fetchquizRouter= require('./routes/fetchquizRoute');
+const fetchquizRouter = require('./routes/fetchquizRoute');
 const profileRouter = require('./routes/profileRoute');
 const premiumRouter = require('./routes/premiumRoute');
-const  editprofileRouter  = require('./routes/editprofileRoute.js');
+const editprofileRouter = require('./routes/editprofileRoute.js');
 const addResponseRouter = require('./routes/addResponseRouter');
-
+const deletequestionRouter = require('./routes/deletequestionRouter');
+const getQuestionsRouter = require('./routes/getQuestionsRouter');
 /*                                                                              
 MIDDLEWARE STACK
 
@@ -54,8 +55,7 @@ app.use(cors());
 passport.use(new LocalStrategy({ usernameField: 'email' }, LocalStrategyCallback));
 
 passport.use(
-    new GoogleStrategy(
-        {
+    new GoogleStrategy({
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             callbackURL: `${process.env.SERVER_API_URL}/auth/google/callback`,
@@ -64,7 +64,7 @@ passport.use(
     )
 );
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3000, function() {
     console.log(' server is Running at Port 3000');
 });
 
@@ -84,7 +84,7 @@ app.use(bodyParser.json());
 
 app.use(
     session({
-        genid: function (req) {
+        genid: function(req) {
             console.log('inside session middleware');
             console.log(req.sessionID);
 
@@ -117,18 +117,20 @@ app.use('/api/v1/resetpassword', resetPasswordRouter);
 app.use('/api/v1/checkplag', checkPlagRouter);
 app.use('/api/v1/upload-multiple-files', startQuizRouter);
 app.use('/api/v1/saveQuizdetails', savingQuizInitialsRouter);
-app.use('/api/v1/addQuestion',upload.single('question_image'), addQuestionRouter);
+app.use('/api/v1/addQuestion', upload.single('question_image'), addQuestionRouter);
 app.use('/api/v1/offlineQuiz', offlineQuizRouter);
 app.use('/api/v1/fetchquiz', fetchquizRouter);
 app.use('/api/v1/payment', paymentRouter);
 app.use('/api/v1/logout', logoutRouter);
 app.use('api/v1/startquiz', startQuizRouter);
-app.use('/api/v1/createQuiz',upload.single('quiz_image'), createQuizRouter);
+app.use('/api/v1/createQuiz', upload.single('quiz_image'), createQuizRouter);
 app.use('/api/v1/doneQuiz', doneQuizRouter);
 app.use('/api/v1/profile', profileRouter); ///api/v1/premium
 app.use('/api/v1/premium', premiumRouter);
-app.use("/api/v1/editprofile",upload.single('profile_image'),editprofileRouter);
-app.use('/api/v1/addResponse',addResponseRouter)
+app.use("/api/v1/editprofile", upload.single('profile_image'), editprofileRouter);
+app.use('/api/v1/addResponse', addResponseRouter);
+app.use('/api/v1/deletequestion', deletequestionRouter);
+app.use('/api/v1/getquestions', getQuestionsRouter);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
